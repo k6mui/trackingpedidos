@@ -19,7 +19,7 @@ public class Producto {
         }
     }
 
-    //Constructores
+    // Constructores
     public Producto() {} 
     public Producto(int id, String emailCliente, String empresa, int id_pedido, String matricula, Estado estado) {
         this.id = id;
@@ -30,7 +30,7 @@ public class Producto {
         this.estado = Estado.INICIADO;
     }
 
-    //Metodos
+    // Métodos accesores y modificadores
     public int getId() {
         return this.id;
     }
@@ -69,7 +69,7 @@ public class Producto {
     } 
 
 
-    //hashcode
+    // Hashcode y equals
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -77,6 +77,7 @@ public class Producto {
         result = prime * result + id;
         return result;
     }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -90,7 +91,5 @@ public class Producto {
             return false;
         return true;
     }
-
-    
     
 }
