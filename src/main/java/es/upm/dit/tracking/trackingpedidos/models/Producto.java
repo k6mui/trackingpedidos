@@ -7,10 +7,10 @@ import javax.persistence.Id;
 @Entity
 public class Producto {
     @Id
-    private int id;
+    private String id;
     private String emailCliente;
     private String empresa;
-    private int id_pedido;
+    private String id_pedido;
     private String matricula;
     private Estado estado;
     private enum Estado{
@@ -21,7 +21,7 @@ public class Producto {
 
     // Constructores
     public Producto() {} 
-    public Producto(int id, String emailCliente, String empresa, int id_pedido, String matricula, Estado estado) {
+    public Producto(String id, String emailCliente, String empresa, String id_pedido, String matricula, Estado estado) {
         this.id = id;
         this.emailCliente = emailCliente;
         this.empresa = empresa;
@@ -31,10 +31,10 @@ public class Producto {
     }
 
     // Métodos accesores y modificadores
-    public int getId() {
+    public String getId() {
         return this.id;
     }
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
     public String getEmailCliente() {
@@ -49,10 +49,10 @@ public class Producto {
     public void setempresa(String empresa) {
         this.empresa = empresa;
     }
-    public int getid_pedido() {
+    public String getid_pedido() {
         return this.id_pedido;
     }
-    public void setid_pedido(int id_pedido) {
+    public void setid_pedido(String id_pedido) {
         this.id_pedido = id_pedido;
     }
     public String getMatricula() {
@@ -66,18 +66,8 @@ public class Producto {
     }
     public void setEstado(Estado estado) { //Estado.Entregado
         this.estado = estado;
-    } 
-
-
-    // Hashcode y equals
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + id;
-        return result;
     }
-
+    
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -87,9 +77,36 @@ public class Producto {
         if (getClass() != obj.getClass())
             return false;
         Producto other = (Producto) obj;
-        if (id != other.id)
+        if (id == null) {
+            if (other.id != null)
+                return false;
+        } else if (!id.equals(other.id))
+            return false;
+        if (emailCliente == null) {
+            if (other.emailCliente != null)
+                return false;
+        } else if (!emailCliente.equals(other.emailCliente))
+            return false;
+        if (empresa == null) {
+            if (other.empresa != null)
+                return false;
+        } else if (!empresa.equals(other.empresa))
+            return false;
+        if (id_pedido != other.id_pedido)
+            return false;
+        if (matricula == null) {
+            if (other.matricula != null)
+                return false;
+        } else if (!matricula.equals(other.matricula))
+            return false;
+        if (estado != other.estado)
             return false;
         return true;
-    }
+    } 
+
+
+    // Hashcode y equals
+  
+
     
 }

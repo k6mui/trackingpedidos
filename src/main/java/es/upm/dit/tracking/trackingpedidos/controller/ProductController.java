@@ -41,6 +41,8 @@ public class ProductController {
         .orElse(new ResponseEntity<Producto>(HttpStatus.NOT_FOUND));
   }
 
+
+
   //Metodo para actualizar un producto
   @PutMapping("/productos/{id}")
   ResponseEntity<Producto> update(@RequestBody Producto newProducto, @PathVariable String id) {
@@ -59,7 +61,7 @@ public class ProductController {
 
   }
 
-  @DeleteMapping("productos/{id}")
+  @DeleteMapping("/productos/{id}")
   ResponseEntity<Producto> delete(@PathVariable String id) {
     productRepository.deleteById(id);
     return ResponseEntity.ok().body(null);

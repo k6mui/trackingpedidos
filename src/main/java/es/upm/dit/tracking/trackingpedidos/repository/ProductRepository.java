@@ -7,4 +7,5 @@ import es.upm.dit.tracking.trackingpedidos.models.Producto;
 // Seria repositorio de pedidos
 public interface ProductRepository extends CrudRepository<Producto, String>{
     List<Producto> findByEmailCliente(String emailCliente);
+   
 }
