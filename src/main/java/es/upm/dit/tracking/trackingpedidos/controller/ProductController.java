@@ -75,12 +75,12 @@ public class ProductController {
   }
 
   //Metodo encargado de obtener el repositorio de los productos asociados a un cliente
-  @GetMapping("/productos/{email}") 
-    List<Producto> findByEmail(@PathVariable String email) {
+  @GetMapping("/productos/{emailCliente}") 
+    List<Producto> findByEmailCliente(@PathVariable String emailCliente) {
       List<Producto> productosByEmail = new ArrayList<Producto>();
 
       for (Producto producto : productRepository.findAll()) {
-        if (producto.getEmailCliente().equals(email)) {
+        if (producto.getEmailCliente().equals(emailCliente)) {
           productosByEmail.add(producto);
         }
       }

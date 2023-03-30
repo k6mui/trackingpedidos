@@ -32,31 +32,31 @@ public class Producto {
 
     //Metodos
     public int getId() {
-        return id;
+        return this.id;
     }
     public void setId(int id) {
         this.id = id;
     }
     public String getEmailCliente() {
-        return emailCliente;
+        return this.emailCliente;
     }
     public void setEmailCliente(String emailCliente) {
         this.emailCliente = emailCliente;
     }
     public String getempresa() {
-        return empresa;
+        return this.empresa;
     }
     public void setempresa(String empresa) {
         this.empresa = empresa;
     }
     public int getid_pedido() {
-        return id_pedido;
+        return this.id_pedido;
     }
     public void setid_pedido(int id_pedido) {
         this.id_pedido = id_pedido;
     }
     public String getMatricula() {
-        return matricula;
+        return this.matricula;
     }
     public void setMatricula(String matricula) {
         this.matricula = matricula;
