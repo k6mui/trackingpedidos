@@ -13,7 +13,7 @@ import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-
+@RequestMapping("/productos")
 public class ProductController {
   private final ProductRepository productRepository;
   public static final Logger log = LoggerFactory.getLogger(ProductController.class);
@@ -22,29 +22,21 @@ public class ProductController {
   }
 
   //Obtener todos los productos
-  @GetMapping("/productos")
-  List<Producto> readAll() {
+  @GetMapping
+  List<Producto> getAllProductos() {
     return (List<Producto>) productRepository.findAll();
   }
 
-  // @PostMapping("/productos")
-  // ResponseEntity<Product> create(@RequestBody Product newProduct) throws URISyntaxException {
-  //   Product result = productRepository.save(newProduct);
-  //   return ResponseEntity.created(new URI("/productos/" + result.getEmail())).body(result);
-  // }
-
-
   //Obtener un producto por su id
-  @GetMapping("/productos/{id}")
-  ResponseEntity<Producto> read(@PathVariable String id) {
+  @GetMapping("/{id}")
+  ResponseEntity<Producto> getProductosById(@PathVariable String id) {
     return productRepository.findById(id).map(producto -> ResponseEntity.ok().body(producto))
         .orElse(new ResponseEntity<Producto>(HttpStatus.NOT_FOUND));
   }
 
 
-
   //Metodo para actualizar un producto
-  @PutMapping("/productos/{id}")
+  @PutMapping("/{id}")
   ResponseEntity<Producto> update(@RequestBody Producto newProducto, @PathVariable String id) {
     return productRepository.findById(id).map(producto -> {
 
@@ -61,16 +53,9 @@ public class ProductController {
 
   }
 
-  @DeleteMapping("/productos/{id}")
-  ResponseEntity<Producto> delete(@PathVariable String id) {
-    productRepository.deleteById(id);
-    return ResponseEntity.ok().body(null);
-
-  }
-
-  //Metodo encargado de obtener el repositorio de los productos asociados a un cliente
-  @GetMapping("/productos/{emailCliente}") 
-    List<Producto> findByEmailCliente(@PathVariable String emailCliente) {
+  // Obtiene los productos asociados a un cliente (email)
+  @GetMapping("/cliente/{emailCliente}") 
+    List<Producto> getProductosByEmailCliente(@PathVariable String emailCliente) {
       List<Producto> productosByEmail = new ArrayList<Producto>();
 
       for (Producto producto : productRepository.findAll()) {
@@ -82,9 +67,49 @@ public class ProductController {
 
       // return productRepository.findAll().stream()
       //    .filter(producto -> producto.getEmailCliente().equals(email))
-      //    .collect(Collectors.toList());
-      
+      //    .collect(Collectors.toList()); 
   }
+
+  // Obtiene los productos asociados a un transportista (matricula)
+  @GetMapping("/transportista/{matricula}") 
+    List<Producto> getProductosByMatricula(@PathVariable String matricula) {
+      List<Producto> productosByMatricula = new ArrayList<Producto>();
+
+      for (Producto producto : productRepository.findAll()) {
+        if (producto.getMatricula().equals(matricula)) {
+          productosByMatricula.add(producto);
+        }
+      }
+      return productosByMatricula;
+  }
+
+  // Obtiene los productos asociados a un transportista (matricula)
+  @GetMapping("/empresa/{empresa}") 
+    List<Producto> getProductosByEmpresa(@PathVariable String empresa) {
+      List<Producto> productosByEmpresa = new ArrayList<Producto>();
+
+      for (Producto producto : productRepository.findAll()) {
+        if (producto.getempresa().equals(empresa)) {
+          productosByEmpresa.add(producto);
+        }
+      }
+      return productosByEmpresa;
+  }
+
+// Obtiene los productos asociados a un pedido (id_pedido)
+@GetMapping("/pedidos/{id_pedido}") 
+List<Producto> getProductosByPedido(@PathVariable String id_pedido) {
+  List<Producto> productosByPedido = new ArrayList<Producto>();
+
+  for (Producto producto : productRepository.findAll()) {
+    if (producto.getMatricula().equals(id_pedido)) {
+      productosByPedido.add(producto);
+    }
+  }
+  return productosByPedido;
+}
+
+  
 
   
 
