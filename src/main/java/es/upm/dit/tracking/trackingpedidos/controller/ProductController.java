@@ -40,16 +40,25 @@ public class ProductController {
   ResponseEntity<Producto> update(@RequestBody Producto newProducto, @PathVariable String id) {
     return productRepository.findById(id).map(producto -> {
 
-      producto.setEmailCliente(newProducto.getEmailCliente());
-      producto.setempresa(newProducto.getempresa());
-      producto.setid_pedido(newProducto.getid_pedido());
-      producto.setMatricula(newProducto.getMatricula());
+      producto.setNombre(newProducto.getNombre());
+      producto.setDescripcion(newProducto.getDescripcion());
       producto.setEstado(newProducto.getEstado());
+      producto.setPedido(newProducto.getPedido());
+      producto.setCliente(newProducto.getCliente());
+      producto.setEmpresa(newProducto.getEmpresa());
+      producto.setTransportista(newProducto.getTransportista());
       productRepository.save(producto);
 
       return ResponseEntity.ok().body(producto);
 
     }).orElse(new ResponseEntity<Producto>(HttpStatus.NOT_FOUND));
+
+  }
+
+  @DeleteMapping("/{id}")
+  ResponseEntity<Producto> delete(@PathVariable String id) {
+    productRepository.deleteById(id);
+    return ResponseEntity.ok().body(null);
 
   }
 
@@ -59,7 +68,7 @@ public class ProductController {
       List<Producto> productosByEmail = new ArrayList<Producto>();
 
       for (Producto producto : productRepository.findAll()) {
-        if (producto.getEmailCliente().equals(emailCliente)) {
+        if (producto.getCliente().equals(emailCliente)) {
           productosByEmail.add(producto);
         }
       }
@@ -67,7 +76,8 @@ public class ProductController {
 
       // return productRepository.findAll().stream()
       //    .filter(producto -> producto.getEmailCliente().equals(email))
-      //    .collect(Collectors.toList()); 
+      //    .collect(Collectors.toList());
+      
   }
 
   // Obtiene los productos asociados a un transportista (matricula)
@@ -76,7 +86,7 @@ public class ProductController {
       List<Producto> productosByMatricula = new ArrayList<Producto>();
 
       for (Producto producto : productRepository.findAll()) {
-        if (producto.getMatricula().equals(matricula)) {
+        if (producto.getTransportista().equals(matricula)) {
           productosByMatricula.add(producto);
         }
       }
@@ -89,7 +99,7 @@ public class ProductController {
       List<Producto> productosByEmpresa = new ArrayList<Producto>();
 
       for (Producto producto : productRepository.findAll()) {
-        if (producto.getempresa().equals(empresa)) {
+        if (producto.getEmpresa().equals(empresa)) {
           productosByEmpresa.add(producto);
         }
       }
@@ -102,7 +112,7 @@ List<Producto> getProductosByPedido(@PathVariable String id_pedido) {
   List<Producto> productosByPedido = new ArrayList<Producto>();
 
   for (Producto producto : productRepository.findAll()) {
-    if (producto.getMatricula().equals(id_pedido)) {
+    if (producto.getPedido().equals(id_pedido)) {
       productosByPedido.add(producto);
     }
   }

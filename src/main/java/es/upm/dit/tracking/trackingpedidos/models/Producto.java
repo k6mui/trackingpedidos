@@ -8,26 +8,31 @@ import javax.persistence.Id;
 public class Producto {
     @Id
     private String id;
-    private String emailCliente;
-    private String empresa;
-    private String id_pedido;
-    private String matricula;
+    private String nombre;
+    private String descripcion;
     private Estado estado;
     private enum Estado{
         INICIADO, TRANSITO, ENTREGADO;
         private Estado() {
         }
     }
+    private String pedido;
+    private String cliente;
+    private String empresa;
+    private String transportista;
+
 
     // Constructores
     public Producto() {} 
-    public Producto(String id, String emailCliente, String empresa, String id_pedido, String matricula, Estado estado) {
+    public Producto(String id, String nombre, String descripcion, Estado estado, String emailCliente, String empresa, String id_pedido, String matricula) {
         this.id = id;
-        this.emailCliente = emailCliente;
-        this.empresa = empresa;
-        this.id_pedido = id_pedido;
-        this.matricula = matricula;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
         this.estado = Estado.INICIADO;
+        this.pedido = id_pedido;
+        this.cliente = emailCliente;
+        this.empresa = empresa;
+        this.transportista = matricula;
     }
 
     // Métodos accesores y modificadores
@@ -37,29 +42,17 @@ public class Producto {
     public void setId(String id) {
         this.id = id;
     }
-    public String getEmailCliente() {
-        return this.emailCliente;
+    public String getNombre() {
+        return this.nombre;
     }
-    public void setEmailCliente(String emailCliente) {
-        this.emailCliente = emailCliente;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
-    public String getempresa() {
-        return this.empresa;
+    public String getDescripcion() {
+        return this.descripcion;
     }
-    public void setempresa(String empresa) {
-        this.empresa = empresa;
-    }
-    public String getid_pedido() {
-        return this.id_pedido;
-    }
-    public void setid_pedido(String id_pedido) {
-        this.id_pedido = id_pedido;
-    }
-    public String getMatricula() {
-        return this.matricula;
-    }
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
     public Estado getEstado() {
         return this.estado;
@@ -67,7 +60,39 @@ public class Producto {
     public void setEstado(Estado estado) { //Estado.Entregado
         this.estado = estado;
     }
-    
+    public String getPedido() {
+        return this.pedido;
+    }
+    public void setPedido(String id_pedido) {
+        this.pedido = id_pedido;
+    }
+    public String getCliente() {
+        return this.cliente;
+    }
+    public void setCliente(String emailCliente) {
+        this.cliente = emailCliente;
+    }
+    public String getEmpresa() {
+        return this.empresa;
+    }
+    public void setEmpresa(String empresa) {
+        this.empresa = empresa;
+    }
+    public String getTransportista() {
+        return this.transportista;
+    }
+    public void setTransportista(String matricula) {
+        this.transportista = matricula;
+    }
+
+    // Hashcode y equals
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        return result;
+    }
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -82,31 +107,6 @@ public class Producto {
                 return false;
         } else if (!id.equals(other.id))
             return false;
-        if (emailCliente == null) {
-            if (other.emailCliente != null)
-                return false;
-        } else if (!emailCliente.equals(other.emailCliente))
-            return false;
-        if (empresa == null) {
-            if (other.empresa != null)
-                return false;
-        } else if (!empresa.equals(other.empresa))
-            return false;
-        if (id_pedido != other.id_pedido)
-            return false;
-        if (matricula == null) {
-            if (other.matricula != null)
-                return false;
-        } else if (!matricula.equals(other.matricula))
-            return false;
-        if (estado != other.estado)
-            return false;
         return true;
-    } 
-
-
-    // Hashcode y equals
-  
-
-    
+    }    
 }
