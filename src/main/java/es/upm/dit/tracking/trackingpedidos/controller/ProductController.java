@@ -15,11 +15,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 
 public class ProductController {
-
   private final ProductRepository productRepository;
-
   public static final Logger log = LoggerFactory.getLogger(ProductController.class);
-
   public ProductController(ProductRepository t) {
     this.productRepository = t;
   }
@@ -32,11 +29,8 @@ public class ProductController {
 
   // @PostMapping("/productos")
   // ResponseEntity<Product> create(@RequestBody Product newProduct) throws URISyntaxException {
-
   //   Product result = productRepository.save(newProduct);
-
   //   return ResponseEntity.created(new URI("/productos/" + result.getEmail())).body(result);
-
   // }
 
 
@@ -67,14 +61,12 @@ public class ProductController {
 
   @DeleteMapping("productos/{id}")
   ResponseEntity<Producto> delete(@PathVariable String id) {
-
     productRepository.deleteById(id);
-
     return ResponseEntity.ok().body(null);
 
   }
 
-  //Metodo encargado de obtener el repositorio de los productos asociados a un cliente
+  // Método encargado de obtener el repositorio de los productos asociados a un cliente
   @GetMapping("/productos/{email}") 
     List<Producto> findByEmail(@PathVariable String email) {
       List<Producto> productosByEmail = new ArrayList<Producto>();
@@ -87,8 +79,8 @@ public class ProductController {
       return productosByEmail;
 
       // return productRepository.findAll().stream()
-      //.filter(producto -> producto.getEmailCliente().equals(email))
-      //.collect(Collectors.toList());
+      //    .filter(producto -> producto.getEmailCliente().equals(email))
+      //    .collect(Collectors.toList());
       
   }
 
