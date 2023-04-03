@@ -14,12 +14,14 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/productos")
+@CrossOrigin
 public class ProductController {
   private final ProductRepository productRepository;
   public static final Logger log = LoggerFactory.getLogger(ProductController.class);
   public ProductController(ProductRepository t) {
     this.productRepository = t;
   }
+ 
 
   //Obtener todos los productos
   @GetMapping

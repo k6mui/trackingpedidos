@@ -29,7 +29,7 @@ function App() {
       try {
         const res = await fetch(SERVER_URL);
         const data = await res.json();
-        setProductos(data.productos);
+        setProductos(data);
       } catch (e) {
         alert("No se ha podido recuperar.");
       }
