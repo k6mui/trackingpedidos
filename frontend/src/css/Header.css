@@ -1,0 +1,63 @@
+#cabecera {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid grey;
+  height: auto;
+}
+
+.cab_der{
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cab_izq {
+  color: #444444;
+  font-family: "Montserrat";
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 1.28;
+  text-align: left;
+  margin-left: 20px;
+}
+.usuario .nombre{
+  color: #444444;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.28;
+  text-align: right;
+  margin-left: 10px;
+  margin-right: 20px; 
+}
+.usuario .rol{
+  color: #6d6969;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.28;
+  text-align: right;
+  margin-left: 10px;
+  margin-right: 20px; 
+}
+
+.cab_der .but_bi-bell-fill{
+  border: transparent;
+  background: transparent;
+  margin-top: 10px;
+  margin-right: 30px;
+}
+
+.cab_der .bi {
+  font-size: 25px;
+  color: #444444;
+}
+
+.cab_der .foto_user {
+  width: 50px;
+  height: auto;
+  margin-right: 10px;
+}

@@ -1,0 +1,94 @@
+.lateral {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 90px;
+    border-right: 1px solid black;
+}
+
+.lateral button{
+    min-width: 50px;
+    min-height: 50px;
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.desplegar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 85px;
+    max-height: 85px;
+    background: #0844A4    
+
+}
+
+.bot_desplegar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    border: 0;
+    background: transparent;
+    gap: .65rem;
+    margin-top: 20px;
+}
+
+.bot_desplegar > div {
+    background: white;
+    min-height: 2.5px;
+    width: 100%;
+    max-height: 2.5px;
+    border-radius: 10px;
+}
+
+.iconos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    gap: 15px;
+    width: 100%;
+    height: 100%;
+    background-color: #ebebeb;
+}
+
+.iconos button {
+    border: transparent;
+    background: transparent;
+    min-width: 60px;
+    min-height: 60px;
+    max-width: 60px;
+    max-height: 60px;
+    border-radius: 10px;
+}
+
+.iconos button:hover {
+    border: 1px solid black;
+    background: white;
+}
+  
+.iconos button:active {
+    background-color: #CCCCCC;
+}
+
+.iconos button:disabled {
+    cursor: not-allowed;
+}
+
+.lateral .bi {
+    font-size: 25px;
+}
+
+.bi-search {
+    color: #444444;
+}
+
+.bi-house-door-fill, .bi-box-seam-fill, .bi-gear-fill {
+    color:#0844A4;
+}

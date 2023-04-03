@@ -1,0 +1,177 @@
+#resena {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 3%;
+    height: auto;
+    font-family: "Montserrat";
+    margin-top: 50px;
+    margin-right: 4%;
+}
+
+#resena .detalle-container {
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  width: 100%;
+}
+
+#resena .bi-caret-right {
+  color: black;
+}
+
+#resena .but_bi-caret-left {
+  background-color: #ebebeb;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 25px;
+  width: 70px;
+  height: 60px;
+  margin-left: 3%;
+}
+
+#resena .but_bi-caret-left:hover {
+  background-color: #CCCCCC;
+}
+
+#resena .but_bi-caret-left:active {
+  background-color: #AAAAAA;
+}
+
+#resena .card_encabezado {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card_encabezado > span {
+  margin-top: 25px;
+  margin-right: 20px;
+}
+
+#resena .titulo {
+  font-size: 48px;
+  margin-top: 50px;
+  margin-left: 70px;
+  margin-bottom: 40px;
+  font-weight: 700; 
+}
+
+#resena .identificadores {
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: right;
+    text-align: right;
+    margin-top: 15px;
+    margin-right: 20px;
+}
+
+.card_valor {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: left;
+  flex-wrap: wrap;
+  margin-left: 10%;
+  margin-right: 10%;
+  min-width: 683px;
+}
+.card_escrito {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+  margin-top: 10px;
+  margin-left: 30px;
+  gap: 10px;
+}
+
+.star_producto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bi-star-fill {
+  color: #f5c032;
+  font-size: 30px;
+}
+
+.bi-star {
+  color: #f5c032;
+  font-size: 30px;
+}
+
+.bi-heart-fill{
+  color: #A52A2A;
+  font-size: 30px;
+}
+
+.bi-heart {
+  color: #A52A2A;
+  font-size: 30px;
+}
+
+.valor_prod, .valor_envio{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.valor_prod {
+  margin-right: 120px;  
+}
+
+.valor_prod > h2, .valor_envio > h2, .card_escrito > h2 {
+  font-size: 30px;
+}
+
+.card_escrito > textarea {
+  font-size: 18px;
+  font-weight: 400;
+  height: 210px;
+  margin-left: 5%;
+  margin-right: 10%;
+  margin-bottom: 20px;
+  padding: 10px;
+  text-align: justify;
+  resize: none;
+  border: 2px dashed grey;
+  border-radius: 10px;
+}
+
+#resena .guardar_res {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Montserrat";
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+#resena .boton_guardar{
+  background-color: #0844A4;
+  border: none;
+  color: white; 
+  padding: 10px 110px;
+  text-align: center; 
+  display: block; 
+  font-size: 24px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 7px;
+}
+
+#resena .boton_guardar:hover {
+  background-color: #0c4fbc;
+}
+
+#resena .boton_guardar:active {
+  background-color: #0844A4;
+}

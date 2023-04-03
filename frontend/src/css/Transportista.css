@@ -1,0 +1,141 @@
+#transporte {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 3%;
+    height: auto;
+    font-family: "Montserrat";
+    margin-top: 50px;
+    margin-right: 4%;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+#transporte .transporte_container {
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  width: 100%;
+}
+
+#transporte .card_encabezado {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card_encabezado > span {
+  margin-top: 25px;
+  margin-right: 20px;
+}
+
+#transporte .titulo {
+  font-size: 48px;
+  margin-top: 50px;
+  margin-left: 70px;
+  margin-bottom: 40px;
+  font-weight: 700; 
+}
+
+#transporte .iniciar_tray {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-right: 80px;
+    font-family: "Montserrat";
+    font-size: 30px;
+    font-weight: 700;
+}
+
+#transporte .label_iniciar {
+    margin-right: 20px;
+}
+
+#transporte .boton_iniciar{
+    background-color: #0844A4;
+    border: none;
+    color: white; 
+    padding: 10px 110px;
+    text-align: center; 
+    display: block; 
+    font-size: 24px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 7px;
+}
+
+#transporte .boton_iniciar:hover {
+    background-color: #0c4fbc;
+}
+
+#transporte .boton_iniciar:active {
+    background-color: #0844A4;
+}
+
+#transporte .card_container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+#transporte .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    margin: 10px 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    width: calc(25% - 50px);
+    height: 180px;
+    min-width: 162px;
+}
+
+#transporte .card:nth-child(4n+1) {
+    margin-left: 60px;
+}
+
+#transporte .card:nth-child(4n+4) {
+    margin-right: 30px;
+}
+
+#transporte .identificador {
+    font-size: 36px;
+    font-weight:  400;
+    margin-top: 15px;
+    text-align: center;
+}
+
+#transporte .der_card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-right: 10px;
+}
+
+#transporte .card_boton{
+    background-color: #23BF8B;
+    border: none;
+    color: white; 
+    width: 80%;
+    padding: 10px 0;
+    text-align: center; 
+    display: block; 
+    font-size: 18px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 7px;
+}
+
+#transporte .card_boton:hover {
+    background-color: #1A936F;
+}
+
+#transporte .card_boton:active {
+    background-color: #0B5345;
+}

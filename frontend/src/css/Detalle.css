@@ -1,0 +1,137 @@
+#detalle {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 3%;
+    height: auto;
+    font-family: "Montserrat";
+    margin-top: 50px;
+    margin-right: 4%;
+}
+
+#detalle .detalle-container {
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  width: 100%;
+}
+
+#detalle .bi-caret-right {
+  color: black;
+}
+
+#detalle .but_bi-caret-left {
+  background-color: #ebebeb;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 25px;
+  width: 70px;
+  height: 60px;
+  margin-left: 3%;
+}
+
+#detalle .but_bi-caret-left:hover {
+  background-color: #CCCCCC;
+}
+
+#detalle .but_bi-caret-left:active {
+  background-color: #AAAAAA;
+}
+
+#detalle .card_encabezado {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card_encabezado > span {
+  margin-top: 25px;
+  margin-right: 20px;
+}
+
+#detalle .titulo {
+  font-size: 48px;
+  margin-top: 50px;
+  margin-left: 70px;
+  margin-bottom: 40px;
+  font-weight: 700; 
+}
+
+.card_descrip, .card_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+  margin-left: 30px;
+  gap: 10px;
+}
+
+.card_descrip > h2, .card_info > h2 {
+  font-size: 30px;
+}
+
+.card_descrip > h3, .card_info > h3 {
+  font-size: 18px;
+  font-weight: 400;
+  margin-left: 40px;
+  margin-right: 10%;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.estado {
+  font-size: 35px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.progreso {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.progreso > .bi {
+  color:#0844A4;
+  font-size: 30px;
+  border-radius: 4px;
+}
+
+progress {
+  position: relative;
+  width: 90%;
+  height: 30px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  border: solid 1px black;
+  margin-bottom: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+progress::before {
+  content: attr(data-label);
+  position: absolute;
+  top: 4px;
+  left: 15px;
+  padding: 0 5px;
+  font-weight: bold;
+  color: white;
+  background-color: #0844A4;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+progress::-webkit-progress-value {
+  background-color: #0844A4;
+  border-radius: 4px;
+}
+progress::-moz-progress-bar {
+  background-color: #0844A4;
+  border-radius: 4px;
+}
