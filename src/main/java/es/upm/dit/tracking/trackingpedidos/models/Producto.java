@@ -11,7 +11,7 @@ public class Producto {
     private String nombre;
     private String descripcion;
     private Estado estado;
-    private enum Estado{
+    public enum Estado{
         INICIADO, TRANSITO, ENTREGADO;
         private Estado() {
         }
