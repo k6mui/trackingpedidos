@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ch.qos.logback.core.filter.Filter;
 import es.upm.dit.tracking.trackingpedidos.models.Producto;
 import es.upm.dit.tracking.trackingpedidos.repository.ProductRepository;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import org.slf4j.*;
 import java.net.*;
@@ -63,7 +64,6 @@ public class ProductController {
     return ResponseEntity.ok().body(null);
 
   }
-
   // Obtiene los productos asociados a un cliente (email)
   @GetMapping("/cliente/{emailCliente}") 
     List<Producto> getProductosByEmailCliente(@PathVariable String emailCliente) {

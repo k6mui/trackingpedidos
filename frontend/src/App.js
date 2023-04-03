@@ -9,7 +9,7 @@ import Resena from "./Resena";
 import Admin from "./Admin";
 
 import {useState, useEffect} from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
@@ -19,15 +19,15 @@ import { mockdata } from "./constants/productos";
 import './css/App.css';
 
 const USE_SERVER = CONFIG.use_server;
-const SERVER_URL = CONFIG.server_url;
 
 function App() {
   const [productos, setProductos] = useState();
+  let location = useLocation();
 
   const download = async () => {
     if (USE_SERVER){
       try {
-        const res = await fetch(SERVER_URL);
+        const res = await fetch("http://localhost:8083"+location.pathname);
         const data = await res.json();
         setProductos(data);
       } catch (e) {
@@ -44,7 +44,8 @@ function App() {
       return clearInterval;	
     }
     fetchData();  
-  }, []);
+    console.log(location.pathname);
+  }, [location.pathname]);
 
   const cambio_res = (value, id_prod, id_ped, reseña) => {
     let aux = productos.map(producto => {
@@ -79,7 +80,7 @@ function App() {
     <div className="principal">
       < Header />
       {productos && < Routes >
-        < Route path="/" element= { < Pedidos productos={productos} /> } />
+        < Route path="/productos/cliente/alex" element= { < Pedidos productos={productos} /> } />
         < Route path="/pedido=:pedidoId/products" element= { < Productos productos={productos} /> } />
         < Route path="/pedido=:pedidoId/producto=:productoId/detalle" element= { < Detalle productos={productos} /> } />
         < Route path="/transportista" element= { < Transportista productos={productos} /> } />

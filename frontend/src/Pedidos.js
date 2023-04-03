@@ -2,11 +2,12 @@ import './css/Pedidos.css';
 import { useNavigate } from 'react-router-dom';
 
 export default function Pedidos(props) { 
+    console.log(props.productos);
     let navigate = useNavigate();
     let prod_client = props.productos
-        .filter(producto => producto.cliente === 12345)
         .filter(producto => producto.estado !== "Entregado");
-    
+        //.filter(producto => producto.cliente === 12345)
+
     return <div id="pedido">
         <h1 className='titulo'>Mis pedidos:</h1>
         <div className="card-container">
