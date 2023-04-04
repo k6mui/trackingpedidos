@@ -14,7 +14,7 @@ import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/productos")
+@RequestMapping("/cliente")
 @CrossOrigin
 public class ProductController {
   private final ProductRepository productRepository;
@@ -23,18 +23,48 @@ public class ProductController {
     this.productRepository = t;
   }
  
+   // Obtiene los productos asociados a un cliente (email)
+   @GetMapping("/{emailCliente}") 
+   List<Producto> getProductosByEmailCliente(@PathVariable String emailCliente) {
+     List<Producto> productosByEmail = new ArrayList<Producto>();
+
+     for (Producto producto : productRepository.findAll()) {
+       if (producto.getCliente().equals(emailCliente)) {
+         productosByEmail.add(producto);
+       }
+     }
+     return productosByEmail;
+
+     // return productRepository.findAll().stream()
+     //    .filter(producto -> producto.getEmailCliente().equals(email))
+     //    .collect(Collectors.toList());
+     
+ }
+
+ // Obtiene los productos asociados a un pedido (id_pedido)
+@GetMapping("/{emailCliente}/{id_pedido}") 
+List<Producto> getProductosByPedido(@PathVariable String id_pedido) {
+  List<Producto> productosByPedido = new ArrayList<Producto>();
+
+  for (Producto producto : productRepository.findAll()) {
+    if (producto.getPedido().equals(id_pedido)) {
+      productosByPedido.add(producto);
+    }
+  }
+  return productosByPedido;
+}
+
+  // Obtener un producto por su id
+  @GetMapping("/{emailCliente}/{id_pedido}/{id}")
+  ResponseEntity<Producto> getProductosById(@PathVariable String id) {
+    return productRepository.findById(id).map(producto -> ResponseEntity.ok().body(producto))
+        .orElse(new ResponseEntity<Producto>(HttpStatus.NOT_FOUND));
+  }
 
   //Obtener todos los productos
   @GetMapping
   List<Producto> getAllProductos() {
     return (List<Producto>) productRepository.findAll();
-  }
-
-  //Obtener un producto por su id
-  @GetMapping("/{id}")
-  ResponseEntity<Producto> getProductosById(@PathVariable String id) {
-    return productRepository.findById(id).map(producto -> ResponseEntity.ok().body(producto))
-        .orElse(new ResponseEntity<Producto>(HttpStatus.NOT_FOUND));
   }
 
 
@@ -64,23 +94,7 @@ public class ProductController {
     return ResponseEntity.ok().body(null);
 
   }
-  // Obtiene los productos asociados a un cliente (email)
-  @GetMapping("/cliente/{emailCliente}") 
-    List<Producto> getProductosByEmailCliente(@PathVariable String emailCliente) {
-      List<Producto> productosByEmail = new ArrayList<Producto>();
-
-      for (Producto producto : productRepository.findAll()) {
-        if (producto.getCliente().equals(emailCliente)) {
-          productosByEmail.add(producto);
-        }
-      }
-      return productosByEmail;
-
-      // return productRepository.findAll().stream()
-      //    .filter(producto -> producto.getEmailCliente().equals(email))
-      //    .collect(Collectors.toList());
-      
-  }
+ 
 
   // Obtiene los productos asociados a un transportista (matricula)
   @GetMapping("/transportista/{matricula}") 
@@ -108,18 +122,7 @@ public class ProductController {
       return productosByEmpresa;
   }
 
-// Obtiene los productos asociados a un pedido (id_pedido)
-@GetMapping("/pedidos/{id_pedido}") 
-List<Producto> getProductosByPedido(@PathVariable String id_pedido) {
-  List<Producto> productosByPedido = new ArrayList<Producto>();
 
-  for (Producto producto : productRepository.findAll()) {
-    if (producto.getPedido().equals(id_pedido)) {
-      productosByPedido.add(producto);
-    }
-  }
-  return productosByPedido;
-}
 
   
 

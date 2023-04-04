@@ -6,17 +6,16 @@ export default function Productos(props) {
     let location = useLocation();
     let navigate = useNavigate();
 
-
+    console.log(props.productos)
     let num_pedido = location.state.index;
     let pedido = location.state.pedido;
-    let empresa = props.productos[0].empresa;
+    let empresa = props.productos.empresa;
 
     let prod_pedido = props.productos
-        .filter(producto => producto.pedido === pedido)
         .filter(producto => producto.estado !== "Entregado");
 
     return <div id="producto">
-        <button className='but_bi-caret-left' onClick={ () => navigate("/") } >
+        <button className='but_bi-caret-left' onClick={ () => navigate("/cliente/javi") } >
             <i className="bi bi-caret-left"></i>
         </button>
         <div className='pedido-container'>
@@ -35,7 +34,7 @@ export default function Productos(props) {
                         <div className='der_card'>
                             <span>ID: {producto.id}</span>
                             <button className='but_bi-caret-right' onClick={ () => 
-                                    navigate(`/pedido=${producto.pedido}/producto=${producto.id}/detalle`, {state: {prod_id: producto.id, pedido: producto.pedido, index: num_pedido}})} >
+                                    navigate(`/cliente/javi/${producto.pedido}/${producto.id}`, {state: {prod_id: producto.id, pedido: producto.pedido, index: num_pedido}})} >
                                 <i className="bi bi-caret-right"></i>
                             </button>
                         </div>

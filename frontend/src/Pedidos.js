@@ -2,7 +2,6 @@ import './css/Pedidos.css';
 import { useNavigate } from 'react-router-dom';
 
 export default function Pedidos(props) { 
-    console.log(props.productos);
     let navigate = useNavigate();
     let prod_client = props.productos
         .filter(producto => producto.estado !== "Entregado");
@@ -28,7 +27,7 @@ export default function Pedidos(props) {
                         <div className='der_card'>
                             <span>ID: {producto.pedido}</span>
                             <button className='but_bi-caret-right' onClick={ () =>
-                                    navigate(`pedido=${producto.pedido}/products/`, {state: {pedido: producto.pedido, index: index+1}}) }>
+                                    navigate(`${producto.pedido}`, {state: {pedido: producto.pedido, index: index+1}}) }>
                                 <i className="bi bi-caret-right"></i>
                             </button>
                         </div>

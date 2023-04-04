@@ -30,6 +30,7 @@ function App() {
         const res = await fetch("http://localhost:8083"+location.pathname);
         const data = await res.json();
         setProductos(data);
+        console.log("ok");
       } catch (e) {
         alert("No se ha podido recuperar.");
       }
@@ -44,7 +45,6 @@ function App() {
       return clearInterval;	
     }
     fetchData();  
-    console.log(location.pathname);
   }, [location.pathname]);
 
   const cambio_res = (value, id_prod, id_ped, reseña) => {
@@ -68,7 +68,6 @@ function App() {
       }
       return producto;
     })
-    console.log(aux);
     setProductos(aux);
   };
 
@@ -80,9 +79,9 @@ function App() {
     <div className="principal">
       < Header />
       {productos && < Routes >
-        < Route path="/productos/cliente/alex" element= { < Pedidos productos={productos} /> } />
-        < Route path="/pedido=:pedidoId/products" element= { < Productos productos={productos} /> } />
-        < Route path="/pedido=:pedidoId/producto=:productoId/detalle" element= { < Detalle productos={productos} /> } />
+        < Route path="/cliente/javi" element= { < Pedidos productos={productos} /> } />
+        < Route path="/cliente/javi/:pedidoId" element= { < Productos productos={productos} /> } />
+        < Route path="/cliente/javi/:pedidoId/:productoId" element= { < Detalle productos={productos} /> } />
         < Route path="/transportista" element= { < Transportista productos={productos} /> } />
         < Route path="/historial" element= { < Historial productos={productos} /> } />
         < Route path="/historial/producto=:productoId/resena" element= { < Resena productos={productos} cambio_res={cambio_res} /> } />

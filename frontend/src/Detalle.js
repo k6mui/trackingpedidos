@@ -12,8 +12,7 @@ export default function Detalle(props) {
     let prod_id = location.state.prod_id;
     let pedido = location.state.pedido;
 
-    let array_productos = props.productos.filter(producto => (producto.pedido === pedido) && (producto.id === prod_id));
-    let producto = array_productos[0];
+    let producto = props.productos;
 
     let valor_estado = 0;
     switch(producto.estado) {
@@ -32,7 +31,7 @@ export default function Detalle(props) {
 
     return <div id="detalle">
 
-        <button className='but_bi-caret-left' onClick={ () => navigate(`/pedido=${producto.pedido}/products/`, {state: {pedido: producto.pedido, index: num_pedido}}) } >
+        <button className='but_bi-caret-left' onClick={ () => navigate(`/cliente/javi/${producto.pedido}`, {state: {pedido: producto.pedido, index: num_pedido}}) } >
             <i className="bi bi-caret-left"></i>
         </button>
 
