@@ -1,7 +1,7 @@
 import './css/Transportista.css';
 
 export default function Transportista(props) {
-    let productos = props.productos.filter(producto => producto.transportista === "1111 AAA");
+    let productos = props.productos;
 
     return <div id="transporte">
         <div className='transporte_container'>

@@ -17,7 +17,7 @@ export default function Reseña(props) {
     console.log(producto);
 
     return <div id="resena">
-         <button className='but_bi-caret-left' onClick={ () => navigate("/historial")}>
+         <button className='but_bi-caret-left' onClick={ () => navigate("/cliente/javi/historial")}>
             <i className="bi bi-caret-left"></i>
         </button>
 

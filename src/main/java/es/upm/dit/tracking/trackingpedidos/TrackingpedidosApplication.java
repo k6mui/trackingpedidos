@@ -29,7 +29,7 @@ public class TrackingpedidosApplication {
 			p1.setNombre("Silla");
 			p1.setDescripcion("Silla de madera: Gröningen");
 			p1.setEstado(Estado.TRANSITO);
-			p1.setPedido("01");
+			p1.setPedido("1");
 			p1.setCliente("javi");
 			p1.setEmpresa("Ikea");
 			p1.setTransportista("8976GVL");
@@ -40,7 +40,7 @@ public class TrackingpedidosApplication {
 			p2.setNombre("Maceta");
 			p2.setDescripcion("Maceta Ostergaard");
 			p2.setEstado(Estado.TRANSITO);
-			p2.setPedido("01");
+			p2.setPedido("1");
 			p2.setCliente("javi");
 			p2.setEmpresa("Ikea");
 			p2.setTransportista("8976GVL");
@@ -51,7 +51,7 @@ public class TrackingpedidosApplication {
 			p3.setNombre("Felpudo");
 			p3.setDescripcion("Felpudo Oaklast");
 			p3.setEstado(Estado.ENTREGADO);
-			p3.setPedido("01");
+			p3.setPedido("1");
 			p3.setCliente("javi");
 			p3.setEmpresa("Ikea");
 			p3.setTransportista("8976GVL");
@@ -62,7 +62,7 @@ public class TrackingpedidosApplication {
 			p4.setNombre("Whey Protein");
 			p4.setDescripcion("Proteína en polvo");
 			p4.setEstado(Estado.ENTREGADO);
-			p4.setPedido("02");
+			p4.setPedido("2");
 			p4.setCliente("jorge");
 			p4.setEmpresa("Prozis");
 			p4.setTransportista("9543POU");
@@ -73,7 +73,7 @@ public class TrackingpedidosApplication {
 			p5.setNombre("Mantequilla de cacahuete");
 			p5.setDescripcion("Crema de maní");
 			p5.setEstado(Estado.ENTREGADO);
-			p5.setPedido("02");
+			p5.setPedido("2");
 			p5.setCliente("jorge");
 			p5.setEmpresa("Prozis");
 			p5.setTransportista("9543POU");
@@ -84,7 +84,7 @@ public class TrackingpedidosApplication {
 			p6.setNombre("Monitor");
 			p6.setDescripcion("Monitor de ordenador 4K");
 			p6.setEstado(Estado.INICIADO);
-			p6.setPedido("03");
+			p6.setPedido("3");
 			p6.setCliente("alex");
 			p6.setEmpresa("PC Componentes");
 			p6.setTransportista("1728TRE");
@@ -95,14 +95,130 @@ public class TrackingpedidosApplication {
 			p7.setNombre("Tarjeta gráfica");
 			p7.setDescripcion("NVIDIA-TG");
 			p7.setEstado(Estado.ENTREGADO);
-			p7.setPedido("04");
+			p7.setPedido("4");
 			p7.setCliente("adri");
 			p7.setEmpresa("PC Componentes");
 			p7.setTransportista("1728TRE");
 			productRepository.save(p7);
+
+
+			Producto p8 = new Producto();
+			p8.setId("8");
+			p8.setNombre("Macbook Air");
+			p8.setDescripcion("Ordenador Apple Chip M2");
+			p8.setEstado(Estado.ENTREGADO);
+			p8.setPedido("4");
+			p8.setCliente("adri");
+			p8.setEmpresa("PC Componentes");
+			p8.setTransportista("1728TRE");
+			productRepository.save(p8);
+
+
+			Producto p9 = new Producto();
+			p9.setId("9");
+			p9.setNombre("Blackwidow v3");
+			p9.setDescripcion("Teclado mecanico gaming");
+			p9.setEstado(Estado.INICIADO);
+			p9.setPedido("5");
+			p9.setCliente("adri");
+			p9.setEmpresa("PC Componentes");
+			p9.setTransportista("1890ALB");
+			productRepository.save(p9);
+
+
+			Producto p10 = new Producto();
+			p10.setId("10");
+			p10.setNombre("Sueñan los androides con ovejas eléctricas");
+			p10.setDescripcion("Libro Sci-Fi");
+			p10.setEstado(Estado.INICIADO);
+			p10.setPedido("6");
+			p10.setCliente("alex");
+			p10.setEmpresa("Libreria Ocho y medio");
+			p10.setTransportista("3002ABC");
+			productRepository.save(p10);
+
+
+			Producto p11 = new Producto();
+			p11.setId("11");
+			p11.setNombre("El mago del Kremlin");
+			p11.setDescripcion("Novela contemporánea");
+			p11.setEstado(Estado.INICIADO);
+			p11.setPedido("6");
+			p11.setCliente("alex");
+			p11.setEmpresa("Libreria Ocho y medio");
+			p11.setTransportista("3002ABC");
+			productRepository.save(p11);
+
+
+			Producto p12 = new Producto();
+			p12.setId("12");
+			p12.setNombre("Todos en mi familia han matado a alguien");
+			p12.setDescripcion("Novela negra");
+			p12.setEstado(Estado.INICIADO);
+			p12.setPedido("6");
+			p12.setCliente("alex");
+			p12.setEmpresa("Libreria Ocho y medio");
+			p12.setTransportista("3002ABC");
+			productRepository.save(p12);
+
+
+			Producto p13 = new Producto();
+			p13.setId("13");
+			p13.setNombre("Kit Mancuernas");
+			p13.setDescripcion("Mancuernas y barras 93 KG");
+			p13.setEstado(Estado.ENTREGADO);
+			p13.setPedido("7");
+			p13.setCliente("jorge");
+			p13.setEmpresa("Deportes Manolo");
+			p13.setTransportista("7664POL");
+			productRepository.save(p13);
+
+			Producto p14 = new Producto();
+			p14.setId("14");
+			p14.setNombre("Chaleco musculación");
+			p14.setDescripcion("Cross training lastrado 5KG");
+			p14.setEstado(Estado.ENTREGADO);
+			p14.setPedido("7");
+			p14.setCliente("jorge");
+			p14.setEmpresa("Deportes Manolo");
+			p14.setTransportista("7664POL");
+			productRepository.save(p14);
+
+			Producto p15 = new Producto();
+			p15.setId("15");
+			p15.setNombre("Audio Technica");
+			p15.setDescripcion("ATH-M50XBT2");
+			p15.setEstado(Estado.INICIADO);
+			p15.setPedido("8");
+			p15.setCliente("javi");
+			p15.setEmpresa("Thomann-Madrid");
+			p15.setTransportista("7775GMN");
+			productRepository.save(p15);
+
+			Producto p16 = new Producto();
+			p16.setId("16");
+			p16.setNombre("Mackie CR3'X BT");
+			p16.setDescripcion("Monitores estudio Mackie");
+			p16.setEstado(Estado.INICIADO);
+			p16.setPedido("8");
+			p16.setCliente("javi");
+			p16.setEmpresa("Thomann-Madrid");
+			p16.setTransportista("7775GMN");
+			productRepository.save(p16);
+
+			Producto p17 = new Producto();
+			p17.setId("17");
+			p17.setNombre("FL STUDIO");
+			p17.setDescripcion("Secuenciador Audio-MIDI DAW");
+			p17.setEstado(Estado.INICIADO);
+			p17.setPedido("8");
+			p17.setCliente("adri");
+			p17.setEmpresa("Thomann-Madrid");
+			p17.setTransportista("7775GMN");
+			productRepository.save(p17);
+
 		}
 	}
 
 
 }
- 

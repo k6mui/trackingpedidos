@@ -12,17 +12,18 @@ export default function Detalle(props) {
     let prod_id = location.state.prod_id;
     let pedido = location.state.pedido;
 
-    let producto = props.productos;
+    let array_productos = props.productos.filter(producto => (producto.pedido === pedido) && (producto.id === prod_id));
+    let producto = array_productos[0];
 
     let valor_estado = 0;
     switch(producto.estado) {
-        case "Iniciado":
+        case "INICIADO":
             valor_estado = 0;
             break;
-        case "En transito":
+        case "TRANSITO":
             valor_estado = 50;
             break;
-        case "Entregado":
+        case "ENTREGADO":
             valor_estado = 100;
             break;
         default:

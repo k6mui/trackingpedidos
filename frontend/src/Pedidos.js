@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 export default function Pedidos(props) { 
     let navigate = useNavigate();
     let prod_client = props.productos
-        .filter(producto => producto.estado !== "Entregado");
+        .filter(producto => producto.estado !== "ENTREGADO");
         //.filter(producto => producto.cliente === 12345)
 
     return <div id="pedido">

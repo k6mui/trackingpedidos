@@ -4,8 +4,7 @@ import { useNavigate } from 'react-router-dom';
 export default function Historial(props) { 
     let navigate = useNavigate();
     let prod_client = props.productos
-        .filter(producto => producto.cliente === 12345)
-        .filter(producto => producto.estado === "Entregado");
+        .filter(producto => producto.estado === "ENTREGADO");
 
     return <div id="historial">
         <h1 className='titulo'>Mi historial:</h1>
@@ -25,7 +24,7 @@ export default function Historial(props) {
                                 <span>ID Producto: {producto.id}</span>
                             </div>
                             <button className='but_bi-caret-right' onClick={ () => 
-                                    navigate(`/historial/producto=${producto.id}/resena`, {state: {prod_id: producto.id, pedido: producto.pedido}})} >
+                                    navigate(`/cliente/javi/historial/${producto.id}`, {state: {prod_id: producto.id, pedido: producto.pedido}})} >
                                 <i className="bi bi-caret-right"></i>
                             </button>
                         </div>

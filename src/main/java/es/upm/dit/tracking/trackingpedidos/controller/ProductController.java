@@ -14,7 +14,6 @@ import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/cliente")
 @CrossOrigin
 public class ProductController {
   private final ProductRepository productRepository;
@@ -24,7 +23,7 @@ public class ProductController {
   }
  
    // Obtiene los productos asociados a un cliente (email)
-   @GetMapping("/{emailCliente}") 
+   @GetMapping("/cliente/{emailCliente}") 
    List<Producto> getProductosByEmailCliente(@PathVariable String emailCliente) {
      List<Producto> productosByEmail = new ArrayList<Producto>();
 
@@ -42,30 +41,30 @@ public class ProductController {
  }
 
  // Obtiene los productos asociados a un pedido (id_pedido)
-@GetMapping("/{emailCliente}/{id_pedido}") 
-List<Producto> getProductosByPedido(@PathVariable String id_pedido) {
-  List<Producto> productosByPedido = new ArrayList<Producto>();
+// @GetMapping("/{emailCliente}/{id_pedido}") 
+// List<Producto> getProductosByPedido(@PathVariable String id_pedido) {
+//   List<Producto> productosByPedido = new ArrayList<Producto>();
 
-  for (Producto producto : productRepository.findAll()) {
-    if (producto.getPedido().equals(id_pedido)) {
-      productosByPedido.add(producto);
-    }
-  }
-  return productosByPedido;
-}
+//   for (Producto producto : productRepository.findAll()) {
+//     if (producto.getPedido().equals(id_pedido)) {
+//       productosByPedido.add(producto);
+//     }
+//   }
+//   return productosByPedido;
+// }
 
-  // Obtener un producto por su id
-  @GetMapping("/{emailCliente}/{id_pedido}/{id}")
-  ResponseEntity<Producto> getProductosById(@PathVariable String id) {
-    return productRepository.findById(id).map(producto -> ResponseEntity.ok().body(producto))
-        .orElse(new ResponseEntity<Producto>(HttpStatus.NOT_FOUND));
-  }
+//   // Obtener un producto por su id
+//   @GetMapping("/{emailCliente}/{id_pedido}/{id}")
+//   ResponseEntity<Producto> getProductosById(@PathVariable String id) {
+//     return productRepository.findById(id).map(producto -> ResponseEntity.ok().body(producto))
+//         .orElse(new ResponseEntity<Producto>(HttpStatus.NOT_FOUND));
+//   }
 
   //Obtener todos los productos
-  @GetMapping
-  List<Producto> getAllProductos() {
-    return (List<Producto>) productRepository.findAll();
-  }
+  // @GetMapping
+  // List<Producto> getAllProductos() {
+  //   return (List<Producto>) productRepository.findAll();
+  // }
 
 
   //Metodo para actualizar un producto
@@ -88,12 +87,6 @@ List<Producto> getProductosByPedido(@PathVariable String id_pedido) {
 
   }
 
-  @DeleteMapping("/{id}")
-  ResponseEntity<Producto> delete(@PathVariable String id) {
-    productRepository.deleteById(id);
-    return ResponseEntity.ok().body(null);
-
-  }
  
 
   // Obtiene los productos asociados a un transportista (matricula)
@@ -109,7 +102,7 @@ List<Producto> getProductosByPedido(@PathVariable String id_pedido) {
       return productosByMatricula;
   }
 
-  // Obtiene los productos asociados a un transportista (matricula)
+  // Obtiene los productos asociados a una empresa 
   @GetMapping("/empresa/{empresa}") 
     List<Producto> getProductosByEmpresa(@PathVariable String empresa) {
       List<Producto> productosByEmpresa = new ArrayList<Producto>();

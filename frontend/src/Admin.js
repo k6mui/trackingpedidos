@@ -3,8 +3,8 @@ import Rating from 'react-rating';
 import './css/Admin.css';
 
 export default function Admin(props) {
-    let productos = props.productos.filter(producto => producto.empresa === "Sillana");
-    let entregados = productos.filter(producto => producto.estado === "Entregado");
+    let productos = props.productos;
+    let entregados = productos.filter(producto => producto.estado === "ENTREGADO");
     
     let clientes = productos
         .reduce((acc, producto) => {

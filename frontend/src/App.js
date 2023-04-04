@@ -30,7 +30,7 @@ function App() {
         const res = await fetch("http://localhost:8083"+location.pathname);
         const data = await res.json();
         setProductos(data);
-        console.log("ok");
+        console.log(productos)
       } catch (e) {
         alert("No se ha podido recuperar.");
       }
@@ -45,7 +45,7 @@ function App() {
       return clearInterval;	
     }
     fetchData();  
-  }, [location.pathname]);
+  }, []);
 
   const cambio_res = (value, id_prod, id_ped, reseña) => {
     let aux = productos.map(producto => {
@@ -82,10 +82,10 @@ function App() {
         < Route path="/cliente/javi" element= { < Pedidos productos={productos} /> } />
         < Route path="/cliente/javi/:pedidoId" element= { < Productos productos={productos} /> } />
         < Route path="/cliente/javi/:pedidoId/:productoId" element= { < Detalle productos={productos} /> } />
-        < Route path="/transportista" element= { < Transportista productos={productos} /> } />
-        < Route path="/historial" element= { < Historial productos={productos} /> } />
-        < Route path="/historial/producto=:productoId/resena" element= { < Resena productos={productos} cambio_res={cambio_res} /> } />
-        < Route path="/admin" element= { < Admin productos={productos} /> } />
+        < Route path="/transportista/8976GVL" element= { < Transportista productos={productos} /> } />
+        < Route path="/cliente/javi/historial" element= { < Historial productos={productos} /> } />
+        < Route path="/cliente/javi/historial/:productoId" element= { < Resena productos={productos} cambio_res={cambio_res} /> } />
+        < Route path="/empresa/Ikea" element= { < Admin productos={productos} /> } />
       </Routes>
       }      
     </div>

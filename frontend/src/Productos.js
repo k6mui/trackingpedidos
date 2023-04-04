@@ -6,13 +6,15 @@ export default function Productos(props) {
     let location = useLocation();
     let navigate = useNavigate();
 
-    console.log(props.productos)
     let num_pedido = location.state.index;
     let pedido = location.state.pedido;
-    let empresa = props.productos.empresa;
+    let empresa = props.productos[0].empresa;
+
 
     let prod_pedido = props.productos
-        .filter(producto => producto.estado !== "Entregado");
+        .filter(producto => producto.pedido === pedido)
+        .filter(producto => producto.estado !== "ENTREGADO");
+        
 
     return <div id="producto">
         <button className='but_bi-caret-left' onClick={ () => navigate("/cliente/javi") } >
