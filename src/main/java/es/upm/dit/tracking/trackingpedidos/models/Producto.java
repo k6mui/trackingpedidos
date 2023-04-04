@@ -20,11 +20,14 @@ public class Producto {
     private String cliente;
     private String empresa;
     private String transportista;
+    private int res_envio;
+    private String res_esc;
+    private int res_prod;
 
 
     // Constructores
     public Producto() {} 
-    public Producto(String id, String nombre, String descripcion, Estado estado, String emailCliente, String empresa, String id_pedido, String matricula) {
+    public Producto(String id, String nombre, String descripcion, Estado estado, String emailCliente, String empresa, String id_pedido, String matricula, int res_envio, String res_esc, int res_prod) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -33,6 +36,9 @@ public class Producto {
         this.cliente = emailCliente;
         this.empresa = empresa;
         this.transportista = matricula;
+        this.res_envio = res_envio;
+        this.res_esc = res_esc;
+        this.res_prod = res_prod;
     }
 
     // Métodos accesores y modificadores
@@ -83,6 +89,24 @@ public class Producto {
     }
     public void setTransportista(String matricula) {
         this.transportista = matricula;
+    }
+    public int getRes_envio() {
+        return this.res_envio;
+    }
+    public void setRes_envio(int res_envio) {
+        this.res_envio = res_envio;
+    }
+    public String getRes_esc() {
+        return this.res_esc;
+    }
+    public void setRes_esc(String res_esc) {
+        this.res_esc = res_esc;
+    }
+    public int getRes_prod() {
+        return this.res_prod;
+    }
+    public void setRes_prod(int res_prod) {
+        this.res_prod = res_prod;
     }
 
     // Hashcode y equals

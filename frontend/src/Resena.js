@@ -14,7 +14,6 @@ export default function Reseña(props) {
 
     let array_productos = props.productos.filter(producto => (producto.pedido === pedido) && (producto.id === prod_id));
     let producto = array_productos[0];
-    console.log(producto);
 
     return <div id="resena">
          <button className='but_bi-caret-left' onClick={ () => navigate("/cliente/javi/historial")}>
@@ -66,7 +65,7 @@ export default function Reseña(props) {
             </div>
 
             <div className="guardar_res">
-                <button className='boton_guardar'> Guardar </button>
+                <button className='boton_guardar' onClick={() => props.actualiza(location.pathname, producto)}> Guardar </button>
             </div>                    
         </div>
     </div>

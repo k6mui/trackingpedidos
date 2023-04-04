@@ -30,7 +30,6 @@ function App() {
         const res = await fetch("http://localhost:8083"+location.pathname);
         const data = await res.json();
         setProductos(data);
-        console.log(productos)
       } catch (e) {
         alert("No se ha podido recuperar.");
       }
@@ -71,6 +70,32 @@ function App() {
     setProductos(aux);
   };
 
+  const cambio_estado = (value, id_prod, id_ped) => {
+    let aux = productos.map(producto => {
+      if (producto.id !== id_prod || producto.pedido !== id_ped) {
+        return producto;
+      }
+      producto.estado=value;
+      return producto;
+    })
+    setProductos(aux);
+  };
+
+  async function updateData(ruta, newData) {
+    try {
+      const response = await fetch("http://localhost:8083"+ruta, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newData)
+      });
+      const result = await response.json();
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   return <div className="App">
     <div className="barra">
       < Barra />
@@ -82,9 +107,9 @@ function App() {
         < Route path="/cliente/javi" element= { < Pedidos productos={productos} /> } />
         < Route path="/cliente/javi/:pedidoId" element= { < Productos productos={productos} /> } />
         < Route path="/cliente/javi/:pedidoId/:productoId" element= { < Detalle productos={productos} /> } />
-        < Route path="/transportista/8976GVL" element= { < Transportista productos={productos} /> } />
+        < Route path="/transportista/7775GMN" element= { < Transportista productos={productos} cambio_estado={cambio_estado} actualiza={updateData} /> } />
         < Route path="/cliente/javi/historial" element= { < Historial productos={productos} /> } />
-        < Route path="/cliente/javi/historial/:productoId" element= { < Resena productos={productos} cambio_res={cambio_res} /> } />
+        < Route path="/cliente/javi/historial/:productoId" element= { < Resena productos={productos} cambio_res={cambio_res} actualiza={updateData} /> } />
         < Route path="/empresa/Ikea" element= { < Admin productos={productos} /> } />
       </Routes>
       }      

@@ -33,6 +33,9 @@ public class TrackingpedidosApplication {
 			p1.setCliente("javi");
 			p1.setEmpresa("Ikea");
 			p1.setTransportista("8976GVL");
+			p1.setRes_envio(0);
+			p1.setRes_esc("");
+			p1.setRes_prod(0);
 			productRepository.save(p1);
 
 			Producto p2 = new Producto();
@@ -44,6 +47,9 @@ public class TrackingpedidosApplication {
 			p2.setCliente("javi");
 			p2.setEmpresa("Ikea");
 			p2.setTransportista("8976GVL");
+			p2.setRes_envio(0);
+			p2.setRes_esc("");
+			p2.setRes_prod(0);
 			productRepository.save(p2);
 
 			Producto p3 = new Producto();
@@ -55,6 +61,9 @@ public class TrackingpedidosApplication {
 			p3.setCliente("javi");
 			p3.setEmpresa("Ikea");
 			p3.setTransportista("8976GVL");
+			p3.setRes_envio(0);
+			p3.setRes_esc("");
+			p3.setRes_prod(0);
 			productRepository.save(p3);
 
 			Producto p4 = new Producto();
@@ -66,6 +75,9 @@ public class TrackingpedidosApplication {
 			p4.setCliente("jorge");
 			p4.setEmpresa("Prozis");
 			p4.setTransportista("9543POU");
+			p4.setRes_envio(0);
+			p4.setRes_esc("");
+			p4.setRes_prod(0);
 			productRepository.save(p4);
 			
 			Producto p5 = new Producto();
@@ -77,6 +89,9 @@ public class TrackingpedidosApplication {
 			p5.setCliente("jorge");
 			p5.setEmpresa("Prozis");
 			p5.setTransportista("9543POU");
+			p5.setRes_envio(0);
+			p5.setRes_esc("");
+			p5.setRes_prod(0);
 			productRepository.save(p5);
 
 			Producto p6 = new Producto();
@@ -88,6 +103,9 @@ public class TrackingpedidosApplication {
 			p6.setCliente("alex");
 			p6.setEmpresa("PC Componentes");
 			p6.setTransportista("1728TRE");
+			p6.setRes_envio(0);
+			p6.setRes_esc("");
+			p6.setRes_prod(0);
 			productRepository.save(p6);
 
 			Producto p7 = new Producto();
@@ -99,6 +117,9 @@ public class TrackingpedidosApplication {
 			p7.setCliente("adri");
 			p7.setEmpresa("PC Componentes");
 			p7.setTransportista("1728TRE");
+			p7.setRes_envio(0);
+			p7.setRes_esc("");
+			p7.setRes_prod(0);
 			productRepository.save(p7);
 
 
@@ -111,6 +132,9 @@ public class TrackingpedidosApplication {
 			p8.setCliente("adri");
 			p8.setEmpresa("PC Componentes");
 			p8.setTransportista("1728TRE");
+			p8.setRes_envio(0);
+			p8.setRes_esc("");
+			p8.setRes_prod(0);
 			productRepository.save(p8);
 
 
@@ -123,6 +147,9 @@ public class TrackingpedidosApplication {
 			p9.setCliente("adri");
 			p9.setEmpresa("PC Componentes");
 			p9.setTransportista("1890ALB");
+			p9.setRes_envio(0);
+			p9.setRes_esc("");
+			p9.setRes_prod(0);
 			productRepository.save(p9);
 
 
@@ -135,6 +162,9 @@ public class TrackingpedidosApplication {
 			p10.setCliente("alex");
 			p10.setEmpresa("Libreria Ocho y medio");
 			p10.setTransportista("3002ABC");
+			p10.setRes_envio(0);
+			p10.setRes_esc("");
+			p10.setRes_prod(0);
 			productRepository.save(p10);
 
 
@@ -147,6 +177,9 @@ public class TrackingpedidosApplication {
 			p11.setCliente("alex");
 			p11.setEmpresa("Libreria Ocho y medio");
 			p11.setTransportista("3002ABC");
+			p11.setRes_envio(0);
+			p11.setRes_esc("");
+			p11.setRes_prod(0);
 			productRepository.save(p11);
 
 
@@ -159,6 +192,9 @@ public class TrackingpedidosApplication {
 			p12.setCliente("alex");
 			p12.setEmpresa("Libreria Ocho y medio");
 			p12.setTransportista("3002ABC");
+			p12.setRes_envio(0);
+			p12.setRes_esc("");
+			p12.setRes_prod(0);
 			productRepository.save(p12);
 
 
@@ -171,6 +207,9 @@ public class TrackingpedidosApplication {
 			p13.setCliente("jorge");
 			p13.setEmpresa("Deportes Manolo");
 			p13.setTransportista("7664POL");
+			p13.setRes_envio(0);
+			p13.setRes_esc("");
+			p13.setRes_prod(0);
 			productRepository.save(p13);
 
 			Producto p14 = new Producto();
@@ -182,6 +221,9 @@ public class TrackingpedidosApplication {
 			p14.setCliente("jorge");
 			p14.setEmpresa("Deportes Manolo");
 			p14.setTransportista("7664POL");
+			p14.setRes_envio(0);
+			p14.setRes_esc("");
+			p14.setRes_prod(0);
 			productRepository.save(p14);
 
 			Producto p15 = new Producto();
@@ -193,6 +235,9 @@ public class TrackingpedidosApplication {
 			p15.setCliente("javi");
 			p15.setEmpresa("Thomann-Madrid");
 			p15.setTransportista("7775GMN");
+			p15.setRes_envio(0);
+			p15.setRes_esc("");
+			p15.setRes_prod(0);
 			productRepository.save(p15);
 
 			Producto p16 = new Producto();
@@ -204,6 +249,9 @@ public class TrackingpedidosApplication {
 			p16.setCliente("javi");
 			p16.setEmpresa("Thomann-Madrid");
 			p16.setTransportista("7775GMN");
+			p16.setRes_envio(0);
+			p16.setRes_esc("");
+			p16.setRes_prod(0);
 			productRepository.save(p16);
 
 			Producto p17 = new Producto();
@@ -215,6 +263,9 @@ public class TrackingpedidosApplication {
 			p17.setCliente("adri");
 			p17.setEmpresa("Thomann-Madrid");
 			p17.setTransportista("7775GMN");
+			p17.setRes_envio(0);
+			p17.setRes_esc("");
+			p17.setRes_prod(0);
 			productRepository.save(p17);
 
 		}
