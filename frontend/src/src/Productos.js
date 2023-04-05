@@ -17,7 +17,7 @@ export default function Productos(props) {
         
 
     return <div id="producto">
-        <button className='but_bi-caret-left' onClick={ () => navigate("/cliente/javi") } >
+        <button className='but_bi-caret-left' onClick={ () => navigate(`/cliente/${props.email}`) } >
             <i className="bi bi-caret-left"></i>
         </button>
         <div className='pedido-container'>
@@ -36,7 +36,7 @@ export default function Productos(props) {
                         <div className='der_card'>
                             <span>ID: {producto.id}</span>
                             <button className='but_bi-caret-right' onClick={ () => 
-                                    navigate(`/cliente/javi/${producto.pedido}/${producto.id}`, {state: {prod_id: producto.id, pedido: producto.pedido, index: num_pedido}})} >
+                                    navigate(`/cliente/${props.email}/${producto.pedido}/${producto.id}`, {state: {prod_id: producto.id, pedido: producto.pedido, index: num_pedido}})} >
                                 <i className="bi bi-caret-right"></i>
                             </button>
                         </div>

@@ -24,7 +24,7 @@ export default function Historial(props) {
                                 <span>ID Producto: {producto.id}</span>
                             </div>
                             <button className='but_bi-caret-right' onClick={ () => 
-                                    navigate(`/cliente/javi/historial/${producto.id}`, {state: {prod_id: producto.id, pedido: producto.pedido}})} >
+                                    navigate(`/cliente/${props.email}/historial/${producto.id}`, {state: {prod_id: producto.id, pedido: producto.pedido}})} >
                                 <i className="bi bi-caret-right"></i>
                             </button>
                         </div>

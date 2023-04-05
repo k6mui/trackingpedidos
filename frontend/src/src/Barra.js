@@ -21,11 +21,11 @@ export default function Barra(props) {
                 <i className="bi bi-search"></i>
             </button>
 
-            <button className='but_bi-house-door-fill' onClick={ () => navigate("/cliente/javi") } >
+            <button className='but_bi-house-door-fill' onClick={ () => navigate(`/cliente/${props.email}`) } >
                 <i className="bi bi-house-door-fill"></i>
             </button>
             
-            <button className='but_bi-box-seam-fill' onClick={ () => navigate("/cliente/javi/historial") } >
+            <button className='but_bi-box-seam-fill' onClick={ () => navigate(`/cliente/${props.email}/historial`) } >
                 <i className="bi bi-box-seam-fill"></i>
             </button>
 

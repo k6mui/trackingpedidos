@@ -139,3 +139,9 @@
 #transporte .card_boton:active {
     background-color: #0B5345;
 }
+
+#transporte .no_prod {
+    font-size: 30px;
+    font-weight: 400;
+    margin-left: 40px;
+  }

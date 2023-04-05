@@ -16,7 +16,7 @@ export default function Reseña(props) {
     let producto = array_productos[0];
 
     return <div id="resena">
-         <button className='but_bi-caret-left' onClick={ () => navigate("/cliente/javi/historial")}>
+         <button className='but_bi-caret-left' onClick={ () => navigate(`/cliente/${props.email}/historial`)}>
             <i className="bi bi-caret-left"></i>
         </button>
 

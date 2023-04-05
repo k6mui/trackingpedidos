@@ -1,0 +1,124 @@
+.log_lateral{
+    width: 10%;
+    height: 100%;
+    background-color: #0844A4;
+}
+.log_principal {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    width: 80%;
+    height: 100%;
+}
+
+.log_principal > h1{
+    color: #444444;
+    font-family: "Montserrat";
+    font-weight: bold;
+    font-size: 48px;
+    text-align: left;
+    margin-top: 80px;
+    margin-left: 50px;
+    height: auto;
+}
+
+.log_container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    width: 80%;
+    height: auto;
+    margin: 10%;
+}
+
+.log_container > h1{
+    color: #444444;
+    font-family: "Montserrat";
+    font-weight: bold;
+    font-size: 44px;
+    text-align: left;
+    margin-top: 40px;
+    margin-left: 30px;
+    height: auto;
+}
+
+.inputs_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+.inputs{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    width: auto;
+    height: auto;
+    margin-top: 50px;
+    margin-right: 50px;
+}
+
+.inputs > input{
+    color: #444444;
+    font-family: "Montserrat";
+    font-weight: bold;
+    font-size: 25px;
+    text-align: left;
+    height: auto;
+    padding: 5px;
+}
+
+.inputs > label{
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    text-align: left;
+    width: 50px;
+    height: auto;
+    text-align: right;
+    color: #444444;
+    font-size: 25px;
+    font-family: "Montserrat";
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+
+.App .log_iniciar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Montserrat";
+    font-size: 30px;
+    font-weight: 700;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    height: auto;
+}
+
+.App .boton_iniciar{
+    background-color: #0844A4;
+    border: none;
+    color: white; 
+    padding: 10px 110px;
+    text-align: center; 
+    display: block; 
+    font-size: 24px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 7px;
+}
+
+.App .boton_iniciar:hover {
+    background-color: #0c4fbc;
+}
+
+.App .boton_iniciar:active {
+    background-color: #0844A4;
+}
+

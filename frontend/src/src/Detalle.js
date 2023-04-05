@@ -32,7 +32,7 @@ export default function Detalle(props) {
 
     return <div id="detalle">
 
-        <button className='but_bi-caret-left' onClick={ () => navigate(`/cliente/javi/${producto.pedido}`, {state: {pedido: producto.pedido, index: num_pedido}}) } >
+        <button className='but_bi-caret-left' onClick={ () => navigate(`/cliente/${props.email}/${producto.pedido}`, {state: {pedido: producto.pedido, index: num_pedido}}) } >
             <i className="bi bi-caret-left"></i>
         </button>
 

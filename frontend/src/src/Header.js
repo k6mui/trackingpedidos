@@ -10,8 +10,8 @@ export default function Header(props) {
         </button>
         
         <div className="usuario">
-          <h1 className="nombre">Alejandro Fernandez</h1>
-          <h1 className="rol">User</h1>
+          <h1 className="nombre">{props.email}</h1>
+          <h1 className="rol">{props.rol}</h1>
         </div>
         
         <img className="foto_user" src={process.env.PUBLIC_URL + "/usuario.png"} alt="foto del usuario" />      

@@ -1,12 +1,8 @@
 import { useLocation } from "react-router-dom";
 import "./css/Transportista.css";
-import Productos from "./Productos";
 
 export default function Transportista(props) {
-  let productos = props.productos.filter(
-    (producto) => producto.estado !== "ENTREGADO"
-  );
-
+  let productos = props.productos.filter( (producto) => producto.estado !== "ENTREGADO" );
   let location = useLocation();
 
   const initializer = () => {
@@ -14,17 +10,17 @@ export default function Transportista(props) {
         producto.estado = "TRANSITO";
         props.actualiza(location.pathname, producto);
         props.cambio_estado(producto.estado, producto.id, producto.pedido);
+        return producto;
     });
-}
+  }
 
   return (
     <div id="transporte">
       {productos.length === 0 ? (
-        <h2 className="no_historial">
+        <h2 className="no_prod">
           ¡Enhorabuena! Has entregado todos los productos.
         </h2>
       ) : (
-        <div>
           <div className="transporte_container">
             <div className="card_encabezado">
               <h1 className="titulo">Envíos de hoy:</h1>
@@ -65,7 +61,6 @@ export default function Transportista(props) {
               })}
             </div>
           </div>
-        </div>
       )}
     </div>
   );
