@@ -28,7 +28,7 @@ public class TrackingpedidosApplication {
 			p1.setId("1");
 			p1.setNombre("Silla");
 			p1.setDescripcion("Silla de madera: Gröningen");
-			p1.setEstado(Estado.TRANSITO);
+			p1.setEstado(Estado.INICIADO);
 			p1.setPedido("1");
 			p1.setCliente("javi");
 			p1.setEmpresa("Ikea");
@@ -42,7 +42,7 @@ public class TrackingpedidosApplication {
 			p2.setId("2");
 			p2.setNombre("Maceta");
 			p2.setDescripcion("Maceta Ostergaard");
-			p2.setEstado(Estado.TRANSITO);
+			p2.setEstado(Estado.INICIADO);
 			p2.setPedido("1");
 			p2.setCliente("javi");
 			p2.setEmpresa("Ikea");
@@ -56,7 +56,7 @@ public class TrackingpedidosApplication {
 			p3.setId("3");
 			p3.setNombre("Felpudo");
 			p3.setDescripcion("Felpudo Oaklast");
-			p3.setEstado(Estado.ENTREGADO);
+			p3.setEstado(Estado.INICIADO);
 			p3.setPedido("1");
 			p3.setCliente("javi");
 			p3.setEmpresa("Ikea");
@@ -70,7 +70,7 @@ public class TrackingpedidosApplication {
 			p4.setId("4");
 			p4.setNombre("Whey Protein");
 			p4.setDescripcion("Proteína en polvo");
-			p4.setEstado(Estado.ENTREGADO);
+			p4.setEstado(Estado.INICIADO);
 			p4.setPedido("2");
 			p4.setCliente("jorge");
 			p4.setEmpresa("Prozis");
@@ -84,7 +84,7 @@ public class TrackingpedidosApplication {
 			p5.setId("5");
 			p5.setNombre("Mantequilla de cacahuete");
 			p5.setDescripcion("Crema de maní");
-			p5.setEstado(Estado.ENTREGADO);
+			p5.setEstado(Estado.INICIADO);
 			p5.setPedido("2");
 			p5.setCliente("jorge");
 			p5.setEmpresa("Prozis");
@@ -112,7 +112,7 @@ public class TrackingpedidosApplication {
 			p7.setId("7");
 			p7.setNombre("Tarjeta gráfica");
 			p7.setDescripcion("NVIDIA-TG");
-			p7.setEstado(Estado.ENTREGADO);
+			p7.setEstado(Estado.INICIADO);
 			p7.setPedido("4");
 			p7.setCliente("adri");
 			p7.setEmpresa("PC Componentes");
@@ -127,7 +127,7 @@ public class TrackingpedidosApplication {
 			p8.setId("8");
 			p8.setNombre("Macbook Air");
 			p8.setDescripcion("Ordenador Apple Chip M2");
-			p8.setEstado(Estado.ENTREGADO);
+			p8.setEstado(Estado.INICIADO);
 			p8.setPedido("4");
 			p8.setCliente("adri");
 			p8.setEmpresa("PC Componentes");
@@ -202,7 +202,7 @@ public class TrackingpedidosApplication {
 			p13.setId("13");
 			p13.setNombre("Kit Mancuernas");
 			p13.setDescripcion("Mancuernas y barras 93 KG");
-			p13.setEstado(Estado.ENTREGADO);
+			p13.setEstado(Estado.INICIADO);
 			p13.setPedido("7");
 			p13.setCliente("jorge");
 			p13.setEmpresa("Deportes Manolo");
@@ -216,7 +216,7 @@ public class TrackingpedidosApplication {
 			p14.setId("14");
 			p14.setNombre("Chaleco musculación");
 			p14.setDescripcion("Cross training lastrado 5KG");
-			p14.setEstado(Estado.ENTREGADO);
+			p14.setEstado(Estado.INICIADO);
 			p14.setPedido("7");
 			p14.setCliente("jorge");
 			p14.setEmpresa("Deportes Manolo");

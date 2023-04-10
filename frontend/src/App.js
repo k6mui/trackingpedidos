@@ -4,9 +4,6 @@ import Pedidos from "./Pedidos";
 import Productos from "./Productos";
 import Detalle from "./Detalle";
 import Transportista from "./Transportista";
-import Historial from "./Historial";
-import Resena from "./Resena";
-import Admin from "./Admin";
 import Login from "./Login";
 
 import {useState, useEffect} from "react";
@@ -33,7 +30,7 @@ function App() {
   const download = async () => {
     if (USE_SERVER){
       try {
-        const res = await fetch("http://localhost:8083"+location.pathname);
+        const res = await fetch("http://localhost:8080"+location.pathname);
         const data = await res.json();
         setProductos(data);
       } catch (e) {
@@ -59,30 +56,6 @@ function App() {
 
   function handleRol(event) {
     setRol(event.target.value);
-  }
-
-  const cambio_res = (value, id_prod, id_ped, reseña) => {
-    let aux = productos.map(producto => {
-      if (producto.id !== id_prod || producto.pedido !== id_ped) {
-        return producto;
-      }
-
-      switch (reseña) {
-        case "producto":
-          producto.res_prod = value;
-          break;
-        case "envio":
-          producto.res_envio = value;
-          break;
-        case "escrito":
-          producto.res_esc = value;
-          break;
-        default:
-          break;
-      }
-      return producto;
-    })
-    setProductos(aux);
   };
 
   const cambio_estado = (value, id_prod, id_ped) => {
@@ -98,7 +71,7 @@ function App() {
 
   async function updateData(ruta, newData) {
     try {
-      const response = await fetch("http://localhost:8083"+ruta, {
+      const response = await fetch("http://localhost:8080"+ruta, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
@@ -129,9 +102,6 @@ function App() {
           < Route path="/cliente/:clienteId/:pedidoId" element= { < Productos productos={productos} email={email} /> } />
           < Route path="/cliente/:clienteId/:pedidoId/:productoId" element= { < Detalle productos={productos} email={email} /> } />
           < Route path="/transportista/:matricula" element= { < Transportista productos={productos} cambio_estado={cambio_estado} actualiza={updateData} /> } />
-          < Route path="/cliente/:clienteId/historial" element= { < Historial productos={productos} email={email} /> } />
-          < Route path="/cliente/:clienteId/historial/:productoId" element= { < Resena productos={productos} email={email} cambio_res={cambio_res} actualiza={updateData} /> } />
-          < Route path="/empresa/:empresaId" element= { < Admin productos={productos} /> } />
         </Routes>
         }      
         </div>
