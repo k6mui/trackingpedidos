@@ -1,0 +1,110 @@
+#historial {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: left;
+  height: auto;
+  font-family: "Montserrat";
+}
+
+#historial .titulo {
+  font-size: 48px;
+  margin-top: 97px;
+  margin-left: 70px;
+  margin-bottom: 66px;
+  font-weight: 700;
+}
+
+#historial .card-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+
+#historial .card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  margin: 10px 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  width: calc(33.33% - 50px);
+  min-width: 340px;
+  height: 180px;
+}
+
+#historial .card:nth-child(3n+1) {
+  margin-left: 60px;
+}
+
+#historial .card:nth-child(3n+3) {
+  margin-right: 30px;
+}
+
+#historial .izq_card {
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+
+#historial .card h2 {
+  font-size: 25px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+
+#historial .der_card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5px;
+  padding-right: 15px;
+  padding-bottom: 10px;
+}
+
+#historial .identificadores {
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  align-items: right;
+  text-align: right;
+}
+
+#historial .identificadores > span{
+  height: 20px;
+}
+
+#historial .card button {
+  background-color: #ebebeb;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  width: 40px;
+  height: 50px;
+}
+
+#historial .card button:hover {
+  background-color: #CCCCCC;
+}
+
+#historial .card button:active {
+  background-color: #AAAAAA;
+}
+
+#historial .bi-caret-right {
+  color: black;
+}
+
+#historial .no_historial {
+  font-size: 30px;
+  font-weight: 400;
+  margin-left: 40px;
+}
