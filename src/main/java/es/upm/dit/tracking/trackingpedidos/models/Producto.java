@@ -1,6 +1,4 @@
 package es.upm.dit.tracking.trackingpedidos.models;
-import java.util.Arrays.*;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 

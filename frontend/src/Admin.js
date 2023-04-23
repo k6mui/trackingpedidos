@@ -5,7 +5,7 @@ import './css/Admin.css';
 export default function Admin(props) {
     let productos = props.productos;
     let entregados = productos.filter(producto => producto.estado === "ENTREGADO");
-    
+
     let clientes = productos
         .reduce((acc, producto) => {
             if (!acc.find(item => item.cliente === producto.cliente)) 
@@ -15,7 +15,7 @@ export default function Admin(props) {
 
     let res_prod = entregados.map(producto => producto.res_prod);
     let media_prod = (res_prod.reduce((accumulator, currentValue) => accumulator + currentValue))/ res_prod.length;
-    
+
     let res_envio = entregados.map(producto => producto.res_envio);
     let media_envio = (res_envio.reduce((accumulator, currentValue) => accumulator + currentValue))/ res_envio.length;
 
@@ -78,13 +78,13 @@ export default function Admin(props) {
                         <Rating
                             emptySymbol={ < i className="bi bi-star" /> }
                             fullSymbol={ < i className="bi bi-star-fill" /> }
-                            initialRating={media_prod}
+                            initialRating={producto.res_prod}
                             readonly={true}
                         />
                         <Rating
                             emptySymbol={ < i className="bi bi-heart" /> }
                             fullSymbol={ < i className="bi bi-heart-fill" /> }
-                            initialRating={media_envio}
+                            initialRating={producto.res_envio}
                             readonly={true}
                         />
                         </div>                          
@@ -93,6 +93,6 @@ export default function Admin(props) {
             }
         </div>
 
-        
+
     </div>
 } 

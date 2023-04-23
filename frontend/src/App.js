@@ -4,10 +4,11 @@ import Pedidos from "./Pedidos";
 import Productos from "./Productos";
 import Detalle from "./Detalle";
 import Transportista from "./Transportista";
+import Login from "./Login";
 import Historial from "./Historial";
 import Resena from "./Resena";
 import Admin from "./Admin";
-import Login from "./Login";
+import Actualizar from "./Actualizar";
 
 import {useState, useEffect} from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
@@ -26,6 +27,8 @@ function App() {
   const [login, setLogin] = useState(true);
   const [email, setEmail] = useState('');
   const [rol, setRol] = useState('');
+  const [actualizar, setActualizar] = useState({ pedido: "", producto: "", descripcion: "", cliente:""});
+
 
 
   let location = useLocation();
@@ -59,30 +62,6 @@ function App() {
 
   function handleRol(event) {
     setRol(event.target.value);
-  }
-
-  const cambio_res = (value, id_prod, id_ped, reseña) => {
-    let aux = productos.map(producto => {
-      if (producto.id !== id_prod || producto.pedido !== id_ped) {
-        return producto;
-      }
-
-      switch (reseña) {
-        case "producto":
-          producto.res_prod = value;
-          break;
-        case "envio":
-          producto.res_envio = value;
-          break;
-        case "escrito":
-          producto.res_esc = value;
-          break;
-        default:
-          break;
-      }
-      return producto;
-    })
-    setProductos(aux);
   };
 
   const cambio_estado = (value, id_prod, id_ped) => {
@@ -112,6 +91,48 @@ function App() {
     }
   }
 
+  const cambio_res = (value, id_prod, id_ped, reseña) => {
+    let aux = productos.map(producto => {
+      if (producto.id !== id_prod || producto.pedido !== id_ped) {
+        return producto;
+      }
+
+      switch (reseña) {
+        case "producto":
+          producto.res_prod = value;
+          break;
+        case "envio":
+          producto.res_envio = value;
+          break;
+        case "escrito":
+          producto.res_esc = value;
+          break;
+        default:
+          break;
+      }
+      return producto;
+    })
+    setProductos(aux);
+  };
+
+  async function enviarDatos(ruta, newData) {
+    // Envía los datos al servidor en formato JSON
+    console.log(newData);
+    try {
+      const response = await fetch("http://localhost:8080"+ruta, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newData)
+      });
+      const result = await response.json();
+      // console.log(result);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   return(
   <div className="App">
     {login ? (
@@ -119,7 +140,7 @@ function App() {
     ) : (
       <>
         <div className="barra">
-          < Barra email={email}/>
+          < Barra email={email} rol={rol}/>
         </div>
 
         <div className="principal">
@@ -132,6 +153,7 @@ function App() {
           < Route path="/cliente/:clienteId/historial" element= { < Historial productos={productos} email={email} /> } />
           < Route path="/cliente/:clienteId/historial/:productoId" element= { < Resena productos={productos} email={email} cambio_res={cambio_res} actualiza={updateData} /> } />
           < Route path="/empresa/:empresaId" element= { < Admin productos={productos} /> } />
+          < Route path="/empresa/:empresaId/actualizar" element= { < Actualizar datos={actualizar} setDatos={setActualizar} enviarDatos={enviarDatos} /> } />
         </Routes>
         }      
         </div>

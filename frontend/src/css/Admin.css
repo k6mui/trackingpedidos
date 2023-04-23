@@ -26,6 +26,7 @@
 
 #admin .resumen {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     margin-bottom: 50px;
     margin-left: 20px;
@@ -46,6 +47,7 @@
     color: white;
     gap: 10px;
     height: auto;
+    min-height: 128px;
 }
 
 #admin .card:nth-child(1) {

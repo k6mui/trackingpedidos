@@ -28,7 +28,7 @@ export default function Reseña(props) {
                     <span>ID Producto: {producto.id}</span>
                 </div>
             </div>
-            
+
             <div className='card_valor'>
                 <div className='valor_prod'>
                     <h2>Valoración del producto:</h2>
@@ -55,7 +55,7 @@ export default function Reseña(props) {
                     />
                     </div>
                 </div>                
-                
+
             </div>
 
             <div className='card_escrito'>

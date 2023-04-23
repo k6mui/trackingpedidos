@@ -31,6 +31,6 @@ export default function Historial(props) {
                     </div> 
         })}
         </div>
-        
+
     </div>
 }

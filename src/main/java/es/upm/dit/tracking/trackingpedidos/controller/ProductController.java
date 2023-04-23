@@ -3,6 +3,10 @@ package es.upm.dit.tracking.trackingpedidos.controller;
 import org.springframework.web.bind.annotation.RestController;
 
 import es.upm.dit.tracking.trackingpedidos.models.Producto;
+import es.upm.dit.tracking.trackingpedidos.models.ProductoFrontend;
+import es.upm.dit.tracking.trackingpedidos.models.Producto.Estado;
+import org.springframework.util.LinkedMultiValueMap;
+
 import es.upm.dit.tracking.trackingpedidos.repository.ProductRepository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
@@ -15,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 public class ProductController {
   private final ProductRepository productRepository;
+  private int contador = 18;
   public static final Logger log = LoggerFactory.getLogger(ProductController.class);
   public ProductController(ProductRepository t) {
     this.productRepository = t;
@@ -92,6 +97,38 @@ public class ProductController {
 
   }
 
+// Gestor de empresa introduce un pedido nuevo a la base de datos
+@PostMapping("/empresa/{empresa}/actualizar")
+public ResponseEntity<Producto> addPedido(@RequestBody ProductoFrontend jsonRecibido, @PathVariable String empresa) {
+  try{
+    String pedido = jsonRecibido.getPedido();
+    String producto = jsonRecibido.getProducto();
+    String descripcion = jsonRecibido.getDescripcion();
+    String cliente = jsonRecibido.getCliente();
+
+    // Crear un objeto Producto con los valores recibidos
+    Producto productoAñadido = new Producto();
+    productoAñadido.setId(Integer.toString(contador));
+    contador++;
+
+    productoAñadido.setEstado(Estado.INICIADO);
+    productoAñadido.setTransportista("9543POU");
+    productoAñadido.setRes_envio(0);
+    productoAñadido.setRes_esc("");
+    productoAñadido.setRes_prod(0);
+    productoAñadido.setEmpresa(empresa);
+    productoAñadido.setPedido(pedido);
+    productoAñadido.setNombre(producto);
+    productoAñadido.setDescripcion(descripcion);
+    productoAñadido.setCliente(cliente);
+    productRepository.save(productoAñadido);
+    return ResponseEntity.status(HttpStatus.CREATED).body(productoAñadido);
+  } catch(Exception e){
+    return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+  }
+}
+
+
   // Obtiene los productos asociados a una empresa 
   @GetMapping("/empresa/{empresa}") 
     List<Producto> getProductosByEmpresa(@PathVariable String empresa) {
@@ -104,15 +141,5 @@ public class ProductController {
       }
       return productosByEmpresa;
   }
-
-
-
-
-
-
-
-  
-
-  
 
 }
