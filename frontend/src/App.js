@@ -27,7 +27,7 @@ function App() {
   const [login, setLogin] = useState(true);
   const [email, setEmail] = useState('');
   const [rol, setRol] = useState('');
-  const [actualizar, setActualizar] = useState({ pedido: "", producto: "", descripcion: "", cliente:""});
+  const [actualizar, setActualizar] = useState({ pedido: "", producto: "", descripcion: "", cliente:"", transportista:""});
 
 
 

@@ -9,15 +9,17 @@ public class ProductoFrontend {
     private String descripcion;
     private String pedido;
     private String cliente;
+    private String transportista;
    
 
 
     // Constructores
-    public ProductoFrontend(String producto, String descripcion, String cliente, String pedido) {
+    public ProductoFrontend(String producto, String descripcion, String cliente, String pedido, String transportista) {
         this.producto = producto;
         this.descripcion = descripcion;
         this.pedido = pedido;
         this.cliente = cliente;
+        this.transportista = transportista;
     }
 
     // Métodos accesores y modificadores
@@ -49,6 +51,12 @@ public class ProductoFrontend {
         this.cliente = emailCliente;
     }
 
+    public String getTransportista() {
+        return this.transportista;
+    }
+    public void setTransportista(String matriculaTransportista) {
+        this.cliente = matriculaTransportista;
+    }
 
   
 }

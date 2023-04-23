@@ -100,32 +100,31 @@ public class ProductController {
 // Gestor de empresa introduce un pedido nuevo a la base de datos
 @PostMapping("/empresa/{empresa}/actualizar")
 public ResponseEntity<Producto> addPedido(@RequestBody ProductoFrontend jsonRecibido, @PathVariable String empresa) {
-  try{
-    String pedido = jsonRecibido.getPedido();
-    String producto = jsonRecibido.getProducto();
-    String descripcion = jsonRecibido.getDescripcion();
-    String cliente = jsonRecibido.getCliente();
 
-    // Crear un objeto Producto con los valores recibidos
-    Producto productoAñadido = new Producto();
-    productoAñadido.setId(Integer.toString(contador));
-    contador++;
+  String pedido = jsonRecibido.getPedido();
+  String producto = jsonRecibido.getProducto();
+  String descripcion = jsonRecibido.getDescripcion();
+  String cliente = jsonRecibido.getCliente();
+  String transportista = jsonRecibido.getTransportista();
 
-    productoAñadido.setEstado(Estado.INICIADO);
-    productoAñadido.setTransportista("9543POU");
-    productoAñadido.setRes_envio(0);
-    productoAñadido.setRes_esc("");
-    productoAñadido.setRes_prod(0);
-    productoAñadido.setEmpresa(empresa);
-    productoAñadido.setPedido(pedido);
-    productoAñadido.setNombre(producto);
-    productoAñadido.setDescripcion(descripcion);
-    productoAñadido.setCliente(cliente);
-    productRepository.save(productoAñadido);
-    return ResponseEntity.status(HttpStatus.CREATED).body(productoAñadido);
-  } catch(Exception e){
-    return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-  }
+  // Crear un objeto Producto con los valores recibidos
+  Producto productoAñadido = new Producto();
+  productoAñadido.setId(Integer.toString(contador));
+  contador++;
+
+  productoAñadido.setEstado(Estado.INICIADO);
+  productoAñadido.setTransportista(transportista);
+  productoAñadido.setRes_envio(0);
+  productoAñadido.setRes_esc("");
+  productoAñadido.setRes_prod(0);
+  productoAñadido.setEmpresa(empresa);
+  productoAñadido.setPedido(pedido);
+  productoAñadido.setNombre(producto);
+  productoAñadido.setDescripcion(descripcion);
+  productoAñadido.setCliente(cliente);
+  productRepository.save(productoAñadido);
+  return ResponseEntity.status(HttpStatus.CREATED).body(productoAñadido);
+
 }
 
 

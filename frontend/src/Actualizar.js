@@ -35,8 +35,12 @@ export default function Actualizar(props) {
           <input type="text" placeholder="Nombre del producto" value={props.datos.producto} onChange={e => props.setDatos({ ...props.datos, producto: e.target.value })} />
           <input type="text" placeholder="Descripcion del producto" value={props.datos.descripcion} onChange={e => props.setDatos({ ...props.datos, descripcion: e.target.value })} />
           <input type="text" placeholder="Cliente" value={props.datos.cliente} onChange={e => props.setDatos({ ...props.datos, cliente: e.target.value })} />
-          
-          <button type="button" onClick={() => props.enviarDatos(location.pathname, props.datos)}>Enviar</button>
+          <input type="text" placeholder="Matrícula del transporte" value={props.datos.transportista} onChange={e => props.setDatos({ ...props.datos, transportista: e.target.value })} />
+
+          <button type="button" onClick={() => {
+            props.enviarDatos(location.pathname, props.datos);
+            props.setDatos({ pedido: "", producto: "", descripcion: "", cliente:"", transportista:""});
+          }}>Enviar</button>
         </form>
     </div>
     <div className="drag">

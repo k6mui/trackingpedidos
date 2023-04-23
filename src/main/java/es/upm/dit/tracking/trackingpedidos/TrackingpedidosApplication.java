@@ -7,8 +7,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Component;
 
 import es.upm.dit.tracking.trackingpedidos.repository.ProductRepository;
+import es.upm.dit.tracking.trackingpedidos.repository.PosicionRepository;
 import es.upm.dit.tracking.trackingpedidos.models.Producto;
 import es.upm.dit.tracking.trackingpedidos.models.Producto.Estado;
+import es.upm.dit.tracking.trackingpedidos.models.Posicion;
+import es.upm.dit.tracking.trackingpedidos.controller.PosicionController;
 
 @SpringBootApplication
 public class TrackingpedidosApplication {
@@ -21,9 +24,12 @@ public class TrackingpedidosApplication {
 	class dataLoader implements CommandLineRunner{
 		@Autowired
 		private ProductRepository productRepository;
+		@Autowired
+		private PosicionRepository posicionRepository;
 		@Override
 		public void run(String... args) throws Exception {
 
+			// Volcado de datos tabla Producto ------------------------------------------
 			Producto p1 = new Producto();
 			p1.setId("1");
 			p1.setNombre("Silla");
@@ -267,6 +273,32 @@ public class TrackingpedidosApplication {
 			p17.setRes_esc("");
 			p17.setRes_prod(0);
 			productRepository.save(p17);
+
+			// Volcado de datos tabla Transporte ------------------------------------------
+			Posicion t1 = new Posicion();
+			t1.setId("1");
+			t1.setMatricula("7775GMN");
+			t1.setLatitud(-40.89);
+			t1.setLongitud(30.567);
+			posicionRepository.save(t1);
+
+			Posicion t2 = new Posicion();
+			t2.setId("2");
+			t2.setMatricula("7775GMN");
+			t2.setLatitud(-41.89);
+			t2.setLongitud(-30.51);
+			posicionRepository.save(t2);
+
+
+			Posicion t3 = new Posicion();
+			t3.setId("3");
+			t3.setMatricula("7664POL");
+			t3.setLatitud(42.76);
+			t3.setLongitud(20.01);
+			posicionRepository.save(t3);
+
+
+
 
 		}
 	}
