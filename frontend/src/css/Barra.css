@@ -24,7 +24,6 @@
     min-height: 85px;
     max-height: 85px;
     background: #0844A4    
-
 }
 
 .bot_desplegar {
@@ -89,6 +88,6 @@
     color: #444444;
 }
 
-.bi-house-door-fill, .bi-box-seam-fill, .bi-gear-fill {
+.bi-house-door-fill, .bi-box-seam-fill, .bi-gear-fill, .bi-cloud-arrow-up-fill {
     color:#0844A4;
 }

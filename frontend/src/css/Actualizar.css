@@ -1,0 +1,56 @@
+#actualizar {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: left;
+    height: auto;
+    font-family: "Montserrat";
+}
+
+.autorrellenar {
+    max-width: 700px;
+    margin: 50px;
+    padding: 20px;
+    background-color: #ebebeb;
+    border-radius: 5px;
+    height: auto;
+}
+
+#actualizar h1 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#actualizar form {
+    display: flex;
+    flex-direction: column;
+}
+
+#actualizar input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#actualizar button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0844A4;
+    color: #fff;
+    font-size: 16px;
+    width: auto;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0c4fbc;
+}
+
+button:active {
+    background-color: #0844A4;
+}

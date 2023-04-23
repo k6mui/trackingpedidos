@@ -70,7 +70,7 @@ public class TrackingpedidosApplication {
 			p4.setId("4");
 			p4.setNombre("Whey Protein");
 			p4.setDescripcion("Proteína en polvo");
-			p4.setEstado(Estado.INICIADO);
+			p4.setEstado(Estado.ENTREGADO);
 			p4.setPedido("2");
 			p4.setCliente("jorge");
 			p4.setEmpresa("Prozis");
@@ -84,7 +84,7 @@ public class TrackingpedidosApplication {
 			p5.setId("5");
 			p5.setNombre("Mantequilla de cacahuete");
 			p5.setDescripcion("Crema de maní");
-			p5.setEstado(Estado.INICIADO);
+			p5.setEstado(Estado.ENTREGADO);
 			p5.setPedido("2");
 			p5.setCliente("jorge");
 			p5.setEmpresa("Prozis");
