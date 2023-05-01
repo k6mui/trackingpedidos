@@ -1,20 +1,26 @@
-import { useLocation } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
 import Rating from 'react-rating';
+
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import './css/Resena.css';
 
 
 export default function Reseña(props) {
+    // Variable que tiene la localización donde nos encontramos, se utiliza principalmente para saber nuestra ruta actual.
     let location = useLocation();
+
+    // Variable utilizada para navegar entre paginas.
     let navigate = useNavigate();
 
+    // Variables referidas al ID de pedido y al ID del producto. Todas obtenidas por el estado de la localización.
     let prod_id = location.state.prod_id;
     let pedido = location.state.pedido;
 
+    // Nos quedamos con el producto cuyo ID de producto y pedido coincide con el esperado.
     let array_productos = props.productos.filter(producto => (producto.pedido === pedido) && (producto.id === prod_id));
     let producto = array_productos[0];
 
+    // Renderizado de la página.
     return <div id="resena">
          <button className='but_bi-caret-left' onClick={ () => navigate(`/cliente/${props.email}/historial`)}>
             <i className="bi bi-caret-left"></i>

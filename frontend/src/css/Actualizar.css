@@ -1,17 +1,19 @@
 #actualizar {
     padding: 10px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
     align-items: left;
     height: auto;
     font-family: "Montserrat";
 }
 
 .autorrellenar {
-    max-width: 700px;
-    margin: 50px;
+    min-width: 700px;
+    min-height: 400px;
+    margin: 80px;
     padding: 20px;
+    padding-bottom: 70px;
     background-color: #ebebeb;
     border-radius: 5px;
     height: auto;
@@ -21,6 +23,8 @@
     font-size: 24px;
     text-align: center;
     margin-bottom: 20px;
+    height: auto;
+    width: auto;
 }
 
 #actualizar form {
@@ -34,6 +38,7 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
+    min-height: 10px;
 }
 
 #actualizar button {
@@ -47,10 +52,53 @@
     cursor: pointer;
 }
 
-button:hover {
+#actualizar button:hover {
     background-color: #0c4fbc;
 }
 
-button:active {
+#actualizar button:active {
     background-color: #0844A4;
+}
+
+.drag {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 3px dashed #0844A4;
+    border-radius: 5px;
+    width: 700px;
+    height: 250px;
+    margin-top: 150px;
+    margin-left: 80px;
+}
+
+.drag > h1 {
+    font-size: 24px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    color:#0844A4;
+}
+
+.drag > .bi {
+    font-size: 40px;
+    color:#0844A4;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.drag:hover {
+    border-color: #032E5A;
+    cursor: pointer;
+}
+
+.drag:active {
+    border-style: solid;
+    border-color: #032E5A;
+}
+
+.drag > .seleccionar {
+    padding-top: 70px;
 }

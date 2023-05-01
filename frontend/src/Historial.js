@@ -1,11 +1,16 @@
-import './css/Historial.css';
 import { useNavigate } from 'react-router-dom';
 
-export default function Historial(props) { 
+import './css/Historial.css';
+
+export default function Historial(props) {
+    // Variable utilizada para navegar entre paginas.
     let navigate = useNavigate();
+
+    // Variable que almacena solamente los productos en estado ENTREGADO.
     let prod_client = props.productos
         .filter(producto => producto.estado === "ENTREGADO");
 
+    // Renderizado de la página.
     return <div id="historial">
         <h1 className='titulo'>Mi historial:</h1>
         <div className='card-container'>

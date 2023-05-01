@@ -1,19 +1,28 @@
+import ActualPosicion from "./ActualPosicion";
+
 import { useLocation } from "react-router-dom";
+
 import "./css/Transportista.css";
 
 export default function Transportista(props) {
-  let productos = props.productos.filter( (producto) => producto.estado !== "ENTREGADO" );
+  // Variable que tiene la localización donde nos encontramos, se utiliza principalmente para saber nuestra ruta actual.
   let location = useLocation();
 
-  const initializer = () => {
+  // Variable que almacena solamente los productos en estado ENTREGADO.
+  let productos = props.productos
+    .filter( (producto) => producto.estado !== "ENTREGADO" );
+
+  // Funcion que llama a las funciones actualiza y cambio_estado para modificar el estado tanto en el frontend como en el backend.
+  const inicializar = () => {
     productos.map((producto) => {
         producto.estado = "TRANSITO";
         props.actualiza(location.pathname, producto);
         props.cambio_estado(producto.estado, producto.id, producto.pedido);
         return producto;
     });
-  }
+  };
 
+  // Renderizado de la página.
   return (
     <div id="transporte">
       {productos.length === 0 ? (
@@ -31,7 +40,7 @@ export default function Transportista(props) {
               <label htmlFor="boton_iniciar" className="label_iniciar">
                 Iniciar trayecto:{" "}
               </label>
-              <button className="boton_iniciar" onClick = {() => initializer()} > Empezar </button>
+              <button className="boton_iniciar" onClick = {() => inicializar()} > Empezar </button>
             </div>
 
             <div className="card_container">
@@ -41,25 +50,17 @@ export default function Transportista(props) {
                     <h2 className="identificador">ID: {producto.id}</h2>
 
                     <div className="der_card">
-                      <button
-                        className="card_boton"
-                        onClick={() => {
+                      <button className="card_boton" onClick={() => {
                           producto.estado = "ENTREGADO";
                           props.actualiza(location.pathname, producto);
-                          props.cambio_estado(
-                            producto.estado,
-                            producto.id,
-                            producto.pedido
-                          );
-                        }}
-                      >
-                        Entregado
-                      </button>
+                          props.cambio_estado(producto.estado, producto.id, producto.pedido);
+                        }} > Entregado </button>
                     </div>
                   </div>
                 );
               })}
             </div>
+            < ActualPosicion enviarLocalizacion={props.enviarLocalizacion} />
           </div>
       )}
     </div>

@@ -1,12 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 
-
 import './css/Barra.css'
 
-export default function Barra(props) {  
+export default function Barra(props) {
+    // Variable utilizada para navegar entre paginas.
     let navigate = useNavigate();
 
-
+    // Renderizado de la página.
     return <div className='lateral'>
         <div className='desplegar'>
             <button className='bot_desplegar'>
@@ -21,19 +21,19 @@ export default function Barra(props) {
                 <i className="bi bi-search"></i>
             </button>
 
-            {(props.rol=="cliente" || props.rol=="empresa") && 
+            {(props.rol==="cliente" || props.rol==="empresa") && 
                 <button className='but_bi-house-door-fill' onClick={ () => navigate(`/${props.rol}/${props.email}`) } >
                     <i className="bi bi-house-door-fill"></i>
                 </button>
             }
             
-            {props.rol=="cliente" && 
+            {props.rol==="cliente" && 
                 <button className='but_bi-box-seam-fill' onClick={ () => navigate(`/cliente/${props.email}/historial`) } >
                     <i className="bi bi-box-seam-fill"></i>
                 </button>
             }
 
-            {props.rol=="empresa" && 
+            {props.rol==="empresa" && 
                 <button className='but_bi-box-seam-fill' onClick={ () => navigate(`/empresa/${props.email}/actualizar`) } >
                     <i className="bi bi-cloud-arrow-up-fill"></i>
                 </button>

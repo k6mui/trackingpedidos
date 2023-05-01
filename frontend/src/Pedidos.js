@@ -1,12 +1,16 @@
-import './css/Pedidos.css';
 import { useNavigate } from 'react-router-dom';
 
-export default function Pedidos(props) { 
+import './css/Pedidos.css';
+
+export default function Pedidos(props) {
+    // Variable utilizada para navegar entre paginas.
     let navigate = useNavigate();
+
+    // Variable que almacena solamente los productos en estado ENTREGADO.
     let prod_client = props.productos
         .filter(producto => producto.estado !== "ENTREGADO");
-        //.filter(producto => producto.cliente === 12345)
 
+    // Renderizado de la página.
     return <div id="pedido">
         <h1 className='titulo'>Mis pedidos:</h1>
         <div className="card-container">

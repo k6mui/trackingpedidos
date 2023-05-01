@@ -1,20 +1,25 @@
-import { useLocation } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import Map from "./Map";
 
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import './css/Detalle.css';
 
 export default function Detalle(props) {
+    // Variable que tiene la localización donde nos encontramos, se utiliza principalmente para saber nuestra ruta actual.
     let location = useLocation();
+    // Variable utilizada para navegar entre paginas.
     let navigate = useNavigate();
 
+    // Variables referidas al numero del pedido dentro de los pedidos y su ID de producto y de pedido. Todas obtenidas por el estado de la localización.
     let num_pedido = location.state.index;
     let prod_id = location.state.prod_id;
     let pedido = location.state.pedido;
 
+    // Nos quedamos con el producto cuyo ID de producto y pedido coincide con el esperado.
     let array_productos = props.productos.filter(producto => (producto.pedido === pedido) && (producto.id === prod_id));
     let producto = array_productos[0];
 
+    // Logica utilizada para mostrar el porcentaje de carga en la barra de progreso.
     let valor_estado = 0;
     switch(producto.estado) {
         case "INICIADO":
@@ -30,6 +35,7 @@ export default function Detalle(props) {
             valor_estado = 50;
     }
 
+    // Renderizado de la página.
     return <div id="detalle">
 
         <button className='but_bi-caret-left' onClick={ () => navigate(`/cliente/${props.email}/${producto.pedido}`, {state: {pedido: producto.pedido, index: num_pedido}}) } >
@@ -65,6 +71,8 @@ export default function Detalle(props) {
             
         </div>
 
+        <Map ubicaciones={props.ubicaciones}/>
+        <button className="mapa" onClick={() => props.download("ubicaciones")}>Cargar ubicaciones</button>
         
     </div>
 } 

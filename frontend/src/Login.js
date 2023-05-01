@@ -1,8 +1,12 @@
 import { useNavigate } from 'react-router-dom';
+
 import './css/Login.css';
 
 export default function Login(props) {
-    let navigate = useNavigate();  
+    // Variable utilizada para navegar entre paginas.
+    let navigate = useNavigate();
+    
+    // Renderizado de la página.
     return <>
       <div className='log_lateral'></div>
 

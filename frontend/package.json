@@ -6,6 +6,8 @@
   "usejest": true,
   "dependencies": {
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@googlemaps/js-api-loader": "^1.15.1",
+    "@react-google-maps/api": "^2.18.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
@@ -26,7 +28,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:8080",
   "eslintConfig": {
     "extends": [
       "react-app",
