@@ -27,7 +27,7 @@ public class ProductController {
 
   // Obtiene los productos asociados a un cliente (email)
   @GetMapping("/cliente/{emailCliente}") 
-  List<Producto> getProductosByEmailCliente(@PathVariable String emailCliente) {
+  public List<Producto> getProductosByEmailCliente(@PathVariable String emailCliente) {
     List<Producto> productosByEmail = new ArrayList<Producto>();
 
     for (Producto producto : productRepository.findAll()) {
@@ -40,7 +40,7 @@ public class ProductController {
 
   //Metodo para actualizar un producto/reseña
   @PutMapping("/cliente/{emailCliente}/historial/{id}")
-  ResponseEntity<Producto> update(@RequestBody Producto newProducto, @PathVariable String id) {
+  public ResponseEntity<Producto> update(@RequestBody Producto newProducto, @PathVariable String id) {
     return productRepository.findById(id).map(producto -> {
 
       producto.setNombre(newProducto.getNombre());
@@ -76,7 +76,7 @@ public class ProductController {
   
   // Transportista modifica el estado de los productos 
   @PutMapping("/transportista/{matricula}")
-  ResponseEntity<Producto> updateEstado(@RequestBody Producto newProducto, @PathVariable String matricula) {
+  public ResponseEntity<Producto> updateEstado(@RequestBody Producto newProducto, @PathVariable String matricula) {
     return productRepository.findById(newProducto.getId()).map(producto -> {
 
       producto.setNombre(newProducto.getNombre());
@@ -97,67 +97,66 @@ public class ProductController {
 
   }
 
-// // Gestor de empresa introduce un pedido nuevo a la base de datos
-// @PostMapping("/empresa/{empresa}/actualizar")
-// public ResponseEntity<Producto> addPedido(@RequestBody ProductoFrontend jsonRecibido, @PathVariable String empresa) {
+  // Gestor de empresa introduce un pedido nuevo a la base de datos
+  @PostMapping("/empresa/{empresa}/actualizar")
+  public ResponseEntity<Producto> addPedido(@RequestBody ProductoFrontend jsonRecibido, @PathVariable String empresa) {
 
-//   String pedido = jsonRecibido.getPedido();
-//   String producto = jsonRecibido.getProducto();
-//   String descripcion = jsonRecibido.getDescripcion();
-//   String cliente = jsonRecibido.getCliente();
-//   String transportista = jsonRecibido.getTransportista();
+    String pedido = jsonRecibido.getPedido();
+    String producto = jsonRecibido.getProducto();
+    String descripcion = jsonRecibido.getDescripcion();
+    String cliente = jsonRecibido.getCliente();
+    String transportista = jsonRecibido.getTransportista();
 
-//   // Crear un objeto Producto con los valores recibidos
-//   Producto productoAñadido = new Producto();
-//   productoAñadido.setId(Integer.toString(contador));
-//   contador++;
+    // Crear un objeto Producto con los valores recibidos
+    Producto productoAñadido = new Producto();
+    productoAñadido.setId(Integer.toString(contador));
+    contador++;
 
-//   productoAñadido.setEstado(Estado.INICIADO);
-//   productoAñadido.setTransportista(transportista);
-//   productoAñadido.setRes_envio(0);
-//   productoAñadido.setRes_esc("");
-//   productoAñadido.setRes_prod(0);
-//   productoAñadido.setEmpresa(empresa);
-//   productoAñadido.setPedido(pedido);
-//   productoAñadido.setNombre(producto);
-//   productoAñadido.setDescripcion(descripcion);
-//   productoAñadido.setCliente(cliente);
-//   productRepository.save(productoAñadido);
-//   return ResponseEntity.status(HttpStatus.CREATED).body(productoAñadido);
+    productoAñadido.setEstado(Estado.INICIADO);
+    productoAñadido.setTransportista(transportista);
+    productoAñadido.setRes_envio(0);
+    productoAñadido.setRes_esc("");
+    productoAñadido.setRes_prod(0);
+    productoAñadido.setEmpresa(empresa);
+    productoAñadido.setPedido(pedido);
+    productoAñadido.setNombre(producto);
+    productoAñadido.setDescripcion(descripcion);
+    productoAñadido.setCliente(cliente);
+    productRepository.save(productoAñadido);
+    return ResponseEntity.status(HttpStatus.CREATED).body(productoAñadido);
 
-// }
+  }
 
 
+  // // Gestor de empresa introduce un pedido nuevo a la base de datos
+  // @PostMapping("/empresa/{empresa}/actualizar")
+  // public ResponseEntity<Producto> addPedido(@RequestBody Producto jsonRecibido, @PathVariable String empresa) {
 
-// Gestor de empresa introduce un pedido nuevo a la base de datos
-@PostMapping("/empresa/{empresa}/actualizar")
-public ResponseEntity<Producto> addPedido(@RequestBody Producto jsonRecibido, @PathVariable String empresa) {
+  //   String pedido = jsonRecibido.getPedido();
+  //   String producto = jsonRecibido.getNombre();
+  //   String descripcion = jsonRecibido.getDescripcion();
+  //   String cliente = jsonRecibido.getCliente();
+  //   String transportista = jsonRecibido.getTransportista();
 
-  String pedido = jsonRecibido.getPedido();
-  String producto = jsonRecibido.getNombre();
-  String descripcion = jsonRecibido.getDescripcion();
-  String cliente = jsonRecibido.getCliente();
-  String transportista = jsonRecibido.getTransportista();
+  //   // Crear un objeto Producto con los valores recibidos
+  //   Producto productoAñadido = new Producto();
+  //   productoAñadido.setId(Integer.toString(contador));
+  //   contador++;
 
-  // Crear un objeto Producto con los valores recibidos
-  Producto productoAñadido = new Producto();
-  productoAñadido.setId(Integer.toString(contador));
-  contador++;
+  //   productoAñadido.setEstado(Estado.INICIADO);
+  //   productoAñadido.setTransportista(transportista);
+  //   productoAñadido.setRes_envio(0);
+  //   productoAñadido.setRes_esc("");
+  //   productoAñadido.setRes_prod(0);
+  //   productoAñadido.setEmpresa(empresa);
+  //   productoAñadido.setPedido(pedido);
+  //   productoAñadido.setNombre(producto);
+  //   productoAñadido.setDescripcion(descripcion);
+  //   productoAñadido.setCliente(cliente);
+  //   productRepository.save(productoAñadido);
+  //   return ResponseEntity.status(HttpStatus.CREATED).body(productoAñadido);
 
-  productoAñadido.setEstado(Estado.INICIADO);
-  productoAñadido.setTransportista(transportista);
-  productoAñadido.setRes_envio(0);
-  productoAñadido.setRes_esc("");
-  productoAñadido.setRes_prod(0);
-  productoAñadido.setEmpresa(empresa);
-  productoAñadido.setPedido(pedido);
-  productoAñadido.setNombre(producto);
-  productoAñadido.setDescripcion(descripcion);
-  productoAñadido.setCliente(cliente);
-  productRepository.save(productoAñadido);
-  return ResponseEntity.status(HttpStatus.CREATED).body(productoAñadido);
-
-}
+  // }
 
 
   // Obtiene los productos asociados a una empresa 

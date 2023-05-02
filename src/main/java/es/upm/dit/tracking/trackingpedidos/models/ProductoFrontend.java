@@ -14,6 +14,7 @@ public class ProductoFrontend {
 
 
     // Constructores
+    public ProductoFrontend() {};
     public ProductoFrontend(String producto, String descripcion, String cliente, String pedido, String transportista) {
         this.producto = producto;
         this.descripcion = descripcion;
