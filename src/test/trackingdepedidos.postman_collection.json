@@ -1,0 +1,204 @@
+{
+	"info": {
+		"_postman_id": "021bc146-b048-4aeb-bd22-cd6649936a8c",
+		"name": "trackingdepedidos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "testGetProductosCliente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Código de estado es 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Cuerpo del JSON es correcto\", function () {\r",
+							"    pm.response.to.have.body('[{\"id\":\"1\",\"nombre\":\"Silla\",\"descripcion\":\"Silla de madera: Gröningen\",\"estado\":\"INICIADO\",\"pedido\":\"1\",\"cliente\":\"javi\",\"empresa\":\"Ikea\",\"transportista\":\"8976GVL\",\"res_envio\":0,\"res_esc\":\"\",\"res_prod\":0},{\"id\":\"2\",\"nombre\":\"Maceta\",\"descripcion\":\"Maceta Ostergaard\",\"estado\":\"INICIADO\",\"pedido\":\"1\",\"cliente\":\"javi\",\"empresa\":\"Ikea\",\"transportista\":\"8976GVL\",\"res_envio\":0,\"res_esc\":\"\",\"res_prod\":0},{\"id\":\"3\",\"nombre\":\"Felpudo\",\"descripcion\":\"Felpudo Oaklast\",\"estado\":\"INICIADO\",\"pedido\":\"1\",\"cliente\":\"javi\",\"empresa\":\"Ikea\",\"transportista\":\"8976GVL\",\"res_envio\":0,\"res_esc\":\"\",\"res_prod\":0},{\"id\":\"15\",\"nombre\":\"Audio Technica\",\"descripcion\":\"ATH-M50XBT2\",\"estado\":\"INICIADO\",\"pedido\":\"8\",\"cliente\":\"javi\",\"empresa\":\"Thomann-Madrid\",\"transportista\":\"7775GMN\",\"res_envio\":0,\"res_esc\":\"\",\"res_prod\":0},{\"id\":\"16\",\"nombre\":\"Mackie CR3 X BT\",\"descripcion\":\"Monitores estudio Mackie\",\"estado\":\"INICIADO\",\"pedido\":\"8\",\"cliente\":\"javi\",\"empresa\":\"Thomann-Madrid\",\"transportista\":\"7775GMN\",\"res_envio\":0,\"res_esc\":\"\",\"res_prod\":0}]');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Todos los productos tienen el cliente 'javi'\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    for (var i = 0; i < jsonData.lenght; i++) {\r",
+							"        pm.expect(jsonData[i].cliente).to.eql(\"javi\");\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/cliente/javi",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cliente",
+						"javi"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testGetProductosTransportista",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Código de estado es 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Cuerpo del JSON es correcto\", function () {\r",
+							"    pm.response.to.have.body('[{\"id\":\"1\",\"nombre\":\"Silla\",\"descripcion\":\"Silla de madera: Gröningen\",\"estado\":\"INICIADO\",\"pedido\":\"1\",\"cliente\":\"javi\",\"empresa\":\"Ikea\",\"transportista\":\"8976GVL\",\"res_envio\":0,\"res_esc\":\"\",\"res_prod\":0},{\"id\":\"2\",\"nombre\":\"Maceta\",\"descripcion\":\"Maceta Ostergaard\",\"estado\":\"INICIADO\",\"pedido\":\"1\",\"cliente\":\"javi\",\"empresa\":\"Ikea\",\"transportista\":\"8976GVL\",\"res_envio\":0,\"res_esc\":\"\",\"res_prod\":0},{\"id\":\"3\",\"nombre\":\"Felpudo\",\"descripcion\":\"Felpudo Oaklast\",\"estado\":\"INICIADO\",\"pedido\":\"1\",\"cliente\":\"javi\",\"empresa\":\"Ikea\",\"transportista\":\"8976GVL\",\"res_envio\":0,\"res_esc\":\"\",\"res_prod\":0}]');\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Todos los productos tienen el transportista '8976GVL'\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    for (var i = 0; i < jsonData.lenght; i++) {\r",
+							"        pm.expect(jsonData[i].transportista).to.eql(\"8976GVL\");\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/transportista/8976GVL",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transportista",
+						"8976GVL"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testGetProductosEmpresa",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Código de estado es 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Cuerpo del JSON es correcto\", function () {\r",
+							"    pm.response.to.have.body('[{\"id\":\"1\",\"nombre\":\"Silla\",\"descripcion\":\"Silla de madera: Gröningen\",\"estado\":\"INICIADO\",\"pedido\":\"1\",\"cliente\":\"javi\",\"empresa\":\"Ikea\",\"transportista\":\"8976GVL\",\"res_envio\":0,\"res_esc\":\"\",\"res_prod\":0},{\"id\":\"2\",\"nombre\":\"Maceta\",\"descripcion\":\"Maceta Ostergaard\",\"estado\":\"INICIADO\",\"pedido\":\"1\",\"cliente\":\"javi\",\"empresa\":\"Ikea\",\"transportista\":\"8976GVL\",\"res_envio\":0,\"res_esc\":\"\",\"res_prod\":0},{\"id\":\"3\",\"nombre\":\"Felpudo\",\"descripcion\":\"Felpudo Oaklast\",\"estado\":\"INICIADO\",\"pedido\":\"1\",\"cliente\":\"javi\",\"empresa\":\"Ikea\",\"transportista\":\"8976GVL\",\"res_envio\":0,\"res_esc\":\"\",\"res_prod\":0},{\"id\":\"18\",\"nombre\":\"Estantería\",\"descripcion\":\"Kukia Rack\",\"estado\":\"INICIADO\",\"pedido\":\"10\",\"cliente\":\"manuel\",\"empresa\":\"Ikea\",\"transportista\":\"1890ALB\",\"res_envio\":0,\"res_esc\":\"\",\"res_prod\":0}]');\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Todos los productos son de la empresa 'Ikea'\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    for (var i = 0; i < jsonData.lenght; i++) {\r",
+							"        pm.expect(jsonData[i].empresa).to.eql(\"Ikea\");\r",
+							"    }\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/empresa/Ikea",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"empresa",
+						"Ikea"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testGetCoordenadas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Código de estado es 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Cuerpo del JSON es correcto\", function () {\r",
+							"    pm.response.to.have.body('[{\"id\":\"1\",\"matricula\":\"8976GVL\",\"latitud\":40.3154,\"longitud\":-3.6851},{\"id\":\"2\",\"matricula\":\"8976GVL\",\"latitud\":40.367863,\"longitud\":-3.612764}]');\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Todas las posiciones son del vehículo '8976GVL'\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    for (var i = 0; i < jsonData.lenght; i++) {\r",
+							"        pm.expect(jsonData[i].matricula).to.eql(\"8976GVL\");\r",
+							"    }\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/cliente/javi/1/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cliente",
+						"javi",
+						"1",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

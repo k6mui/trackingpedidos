@@ -248,7 +248,7 @@ public class TrackingpedidosApplication {
 
 			Producto p16 = new Producto();
 			p16.setId("16");
-			p16.setNombre("Mackie CR3'X BT");
+			p16.setNombre("Mackie CR3 X BT");
 			p16.setDescripcion("Monitores estudio Mackie");
 			p16.setEstado(Estado.INICIADO);
 			p16.setPedido("8");
@@ -273,6 +273,10 @@ public class TrackingpedidosApplication {
 			p17.setRes_esc("");
 			p17.setRes_prod(0);
 			productRepository.save(p17);
+
+
+			Producto p18 = new Producto("18", "Estantería", "Kukia Rack", Estado.TRANSITO, "manuel", "Ikea", "10", "1890ALB", 0, "", 0);
+			productRepository.save(p18);
 
 			// Volcado de datos tabla Transporte ------------------------------------------
 			Posicion t1 = new Posicion();

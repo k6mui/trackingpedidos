@@ -10,11 +10,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import es.upm.dit.tracking.trackingpedidos.controller.ProductController;
-import es.upm.dit.tracking.trackingpedidos.models.Producto;
-import es.upm.dit.tracking.trackingpedidos.models.ProductoFrontend;
+import es.upm.dit.tracking.trackingpedidos.controller.*;
+import es.upm.dit.tracking.trackingpedidos.models.*;
+import es.upm.dit.tracking.trackingpedidos.repository.*;
 import es.upm.dit.tracking.trackingpedidos.models.Producto.Estado;
-import es.upm.dit.tracking.trackingpedidos.repository.ProductRepository;
 
 @SpringBootTest
 class TrackingpedidosApplicationTests {
@@ -24,6 +23,13 @@ class TrackingpedidosApplicationTests {
 
 	@Autowired
 	private ProductRepository productRepository;
+
+	@Autowired
+    public PosicionController posicionController;
+
+	@Autowired
+	private PosicionRepository posicionRepository;
+
 
 	// 4. Caso de prueba "Modificar el estado de los productos"
 	@Test
@@ -79,7 +85,7 @@ class TrackingpedidosApplicationTests {
 		productRepository.save(p2);
 		productRepository.save(p3);
 
-		// Variante 1:
+		// -------------------- Variante 1 -------------------------------------------------------------
 		Producto newP1 = p1;
 		newP1.setEstado(Estado.TRANSITO);
 		productRepository.save(newP1);
@@ -103,7 +109,7 @@ class TrackingpedidosApplicationTests {
 		assertEquals(Estado.TRANSITO, p2.getEstado());
 		assertEquals(Estado.TRANSITO, p3.getEstado());
 
-		// Variante 2:
+		// -------------------- Variante 2 -------------------------------------------------------------
 		newP1.setEstado(Estado.ENTREGADO);
 		productRepository.save(newP1);
 
@@ -241,4 +247,23 @@ class TrackingpedidosApplicationTests {
 		ResponseEntity<Producto> notFoundResponse = productController.update(newP1, "XXXX");
 		assertEquals(HttpStatus.NOT_FOUND, notFoundResponse.getStatusCode());
 	  }
+
+
+	@Test
+	void testAddPosicion() {
+		Posicion pos1 = new Posicion("15", "9543POU", 0, 0);
+		posicionRepository.save(pos1);
+        
+        ResponseEntity<Posicion> response = posicionController.addPosicion(pos1, "9543POU");
+
+        assertEquals(HttpStatus.CREATED, response.getStatusCode());
+
+        Posicion posicionAñadida = response.getBody();
+        assertNotNull(posicionAñadida);
+		assertEquals(pos1.getLatitud(), posicionAñadida.getLatitud());
+		assertEquals(pos1.getLongitud(), posicionAñadida.getLongitud());
+		assertEquals(pos1.getMatricula(), posicionAñadida.getMatricula());
+	}
+
+
 }
