@@ -24,13 +24,11 @@ public class PosicionController {
   private final PosicionRepository posicionRepository;
   ProductRepository productRepository;
   
-  private int contador = 4;
+  private int contador = 15;
   public PosicionController(PosicionRepository t, ProductRepository p) {
     this.posicionRepository = t;
     this.productRepository = p;
   }
-
-  
 
   // // Obtener coordenadas lat y long de todos los transportes (para ver la posicion de todos los transportes de una empresa)
   // @GetMapping("/datos")
@@ -79,7 +77,7 @@ public class PosicionController {
   // }
 
   // Gestor de la empresa introduce una nueva traza/posición de un vehículo
-  @PostMapping("/posicion/{matricula}/new/")
+  @PostMapping("/posicion/{matricula}/new")
   public ResponseEntity<Posicion> addPosicion(@RequestBody Posicion jsonRecibido, @PathVariable String matricula) {
 
     double longitud = jsonRecibido.getLongitud();
