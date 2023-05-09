@@ -2,6 +2,7 @@
     padding: 10px;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 3%;
@@ -14,7 +15,7 @@
 #detalle .detalle-container {
   border: 1px solid #ccc;
   border-radius: 25px;
-  width: 100%;
+  width: 80%;
 }
 
 #detalle .bi-caret-right {
@@ -90,8 +91,8 @@
   display: flex;
   justify-content: left;
   align-items: left;
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
 .progreso > .bi {
@@ -135,3 +136,35 @@ progress::-moz-progress-bar {
   background-color: #0844A4;
   border-radius: 4px;
 }
+
+#detalle .container_map {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 3%;
+  width: 100%;
+  height: auto;
+  font-family: "Montserrat";
+  }
+
+#detalle .boton_mapa{
+  background-color: #0844A4;
+  border: none;
+  color: white; 
+  padding: 10px 20px;
+  text-align: center; 
+  display: block; 
+  font-size: 18px;
+  margin: 4px 10px;
+  cursor: pointer;
+  border-radius: 7px;
+  }
+  
+  #detalle .boton_mapa:hover {
+  background-color: #0c4fbc;
+  }
+  
+  #detalle .boton_mapa:active {
+  background-color: #0844A4;
+  }

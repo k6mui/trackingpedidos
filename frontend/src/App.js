@@ -25,27 +25,8 @@ function App() {
   // Estado donde almacenamos los productos referidos a un usuario.
   const [productos, setProductos] = useState();
 
-  let ejemplo = [
-    {
-      "id": 1,
-      "latitud": 80,
-      "longitud": 40,
-      "matricula": "2341AAA"
-    },
-    {
-      "id": 2,
-      "latitud": 70,
-      "longitud": 40,
-      "matricula": "2341AAA"
-    },
-    {
-      "id": 3,
-      "latitud": 60,
-      "longitud": 40,
-      "matricula": "2341AAA"
-    }];
   // Estado donde almacenamos los productos referidos a un usuario.
-  const [ubicaciones, setUbicaciones] = useState(ejemplo);
+  const [ubicaciones, setUbicaciones] = useState();
 
   // Estado utilizado para mostar la pagina login en la ruta por defecto.
   const [login, setLogin] = useState(true);
@@ -55,7 +36,7 @@ function App() {
   const [rol, setRol] = useState('');
 
   // Estado utilizado para la introducción de nuevos pedidos por parte de la empresa.
-  const [actualizar, setActualizar] = useState({ pedido: "", producto: "", descripcion: "", cliente:"", transportista:""});
+  const [actualizar, setActualizar] = useState({ pedido: "", nombre: "", descripcion: "", cliente:"", transportista:""});
 
   // Estado utilizado para mostrar si un archivo se ha subido al introducir pedidos por la empresa.
   const [subido, setSubido] = useState(false);
@@ -212,7 +193,7 @@ function App() {
         {productos && < Routes >
           < Route path="/cliente/:clienteId" element= { < Pedidos productos={productos} email={email} /> } />
           < Route path="/cliente/:clienteId/:pedidoId" element= { < Productos productos={productos} email={email} /> } />
-          < Route path="/cliente/:clienteId/:pedidoId/:productoId" element= { < Detalle productos={productos} email={email} ubicaciones={ubicaciones} download={download}/> } />
+          < Route path="/cliente/:clienteId/:pedidoId/:productoId" element= { < Detalle productos={productos} email={email} ubicaciones={ubicaciones} setUbicaciones={setUbicaciones} download={download}/> } />
           < Route path="/transportista/:matricula" element= { < Transportista productos={productos} cambio_estado={cambio_estado} actualiza={putDatos} enviarLocalizacion={enviarLocalizacion}/> } />
           < Route path="/cliente/:clienteId/historial" element= { < Historial productos={productos} email={email} /> } />
           < Route path="/cliente/:clienteId/historial/:productoId" element= { < Resena productos={productos} email={email} cambio_res={cambio_res} actualiza={putDatos} /> } />

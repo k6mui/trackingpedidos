@@ -147,32 +147,61 @@ class TrackingpedidosApplicationTests {
 
 
 
-	// 5. Caso de prueba "Introducir un pedido nuevo"
-	@Test
-	void testAddPedido() {
-        ProductoFrontend jsonRecibido = new ProductoFrontend();
-        jsonRecibido.setPedido("pedido1");
-        jsonRecibido.setProducto("producto1");
-        jsonRecibido.setDescripcion("descripcion1");
-        jsonRecibido.setCliente("cliente1");
-        jsonRecibido.setTransportista("transportista1");
+	// // 5. Caso de prueba "Introducir un pedido nuevo"
+	// @Test
+	// void testAddPedido() {
+    //     ProductoFrontend jsonRecibido = new ProductoFrontend();
+    //     jsonRecibido.setPedido("pedido1");
+    //     jsonRecibido.setProducto("producto1");
+    //     jsonRecibido.setDescripcion("descripcion1");
+    //     jsonRecibido.setCliente("cliente1");
+    //     jsonRecibido.setTransportista("transportista1");
 
-        String empresa = "empresa1";
+    //     String empresa = "empresa1";
 
-        ResponseEntity<Producto> response = productController.addPedido(jsonRecibido, empresa);
+    //     ResponseEntity<Producto> response = productController.addPedido(jsonRecibido, empresa);
 
-        assertEquals(HttpStatus.CREATED, response.getStatusCode());
-        Producto productoAñadido = response.getBody();
-		// Comprobamos que no sea NULL
-        assertNotNull(productoAñadido);
-        assertEquals(Estado.INICIADO, productoAñadido.getEstado());
-        assertEquals(jsonRecibido.getPedido(), productoAñadido.getPedido());
-        assertEquals(jsonRecibido.getProducto(), productoAñadido.getNombre());
-        assertEquals(jsonRecibido.getDescripcion(), productoAñadido.getDescripcion());
-        assertEquals(jsonRecibido.getCliente(), productoAñadido.getCliente());
-        assertEquals(jsonRecibido.getTransportista(), productoAñadido.getTransportista());
-        assertEquals(empresa, productoAñadido.getEmpresa());
-    }
+    //     assertEquals(HttpStatus.CREATED, response.getStatusCode());
+    //     Producto productoAñadido = response.getBody();
+	// 	// Comprobamos que no sea NULL
+    //     assertNotNull(productoAñadido);
+    //     assertEquals(Estado.INICIADO, productoAñadido.getEstado());
+    //     assertEquals(jsonRecibido.getPedido(), productoAñadido.getPedido());
+    //     assertEquals(jsonRecibido.getProducto(), productoAñadido.getNombre());
+    //     assertEquals(jsonRecibido.getDescripcion(), productoAñadido.getDescripcion());
+    //     assertEquals(jsonRecibido.getCliente(), productoAñadido.getCliente());
+    //     assertEquals(jsonRecibido.getTransportista(), productoAñadido.getTransportista());
+    //     assertEquals(empresa, productoAñadido.getEmpresa());
+    // }
+
+// 5. Caso de prueba "Introducir un pedido nuevo"
+@Test
+void testAddPedido2() {
+	Producto jsonRecibido = new Producto();
+	jsonRecibido.setNombre("producto1");
+	jsonRecibido.setDescripcion("descripcion1");
+	jsonRecibido.setPedido("pedido1");
+	jsonRecibido.setCliente("cliente1");
+	jsonRecibido.setTransportista("transportista1");
+
+	String empresa = "empresa1";
+
+	ResponseEntity<Producto> response = productController.addPedido(jsonRecibido, empresa);
+
+	assertEquals(HttpStatus.CREATED, response.getStatusCode());
+	Producto productoAñadido = response.getBody();
+	// Comprobamos que no sea NULL
+	assertNotNull(productoAñadido);
+	assertEquals(Estado.INICIADO, productoAñadido.getEstado());
+	assertEquals(jsonRecibido.getPedido(), productoAñadido.getPedido());
+	assertEquals(jsonRecibido.getNombre(), productoAñadido.getNombre());
+	assertEquals(jsonRecibido.getDescripcion(), productoAñadido.getDescripcion());
+	assertEquals(jsonRecibido.getCliente(), productoAñadido.getCliente());
+	assertEquals(jsonRecibido.getTransportista(), productoAñadido.getTransportista());
+	assertEquals(empresa, productoAñadido.getEmpresa());
+}
+
+
 
 
 

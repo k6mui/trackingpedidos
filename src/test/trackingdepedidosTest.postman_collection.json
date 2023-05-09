@@ -1,0 +1,465 @@
+{
+	"info": {
+		"_postman_id": "fd7ca00b-8378-403a-a30a-0ac38db64eee",
+		"name": "trackingdepedidosTests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "testGetProductosCliente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Código de estado es 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Cuerpo del JSON es correcto\", function () {\r",
+							"    pm.response.to.have.body('[{\"id\":\"1\",\"nombre\":\"Silla\",\"descripcion\":\"Silla de madera: Gröningen\",\"estado\":\"INICIADO\",\"pedido\":\"1\",\"cliente\":\"javi\",\"empresa\":\"Ikea\",\"transportista\":\"8976GVL\",\"res_envio\":0,\"res_esc\":\"\",\"res_prod\":0},{\"id\":\"2\",\"nombre\":\"Maceta\",\"descripcion\":\"Maceta Ostergaard\",\"estado\":\"INICIADO\",\"pedido\":\"1\",\"cliente\":\"javi\",\"empresa\":\"Ikea\",\"transportista\":\"8976GVL\",\"res_envio\":0,\"res_esc\":\"\",\"res_prod\":0},{\"id\":\"3\",\"nombre\":\"Felpudo\",\"descripcion\":\"Felpudo Oaklast\",\"estado\":\"INICIADO\",\"pedido\":\"1\",\"cliente\":\"javi\",\"empresa\":\"Ikea\",\"transportista\":\"8976GVL\",\"res_envio\":0,\"res_esc\":\"\",\"res_prod\":0},{\"id\":\"15\",\"nombre\":\"Audio Technica\",\"descripcion\":\"ATH-M50XBT2\",\"estado\":\"INICIADO\",\"pedido\":\"8\",\"cliente\":\"javi\",\"empresa\":\"Thomann-Madrid\",\"transportista\":\"7775GMN\",\"res_envio\":0,\"res_esc\":\"\",\"res_prod\":0},{\"id\":\"16\",\"nombre\":\"Mackie CR3 X BT\",\"descripcion\":\"Monitores estudio Mackie\",\"estado\":\"INICIADO\",\"pedido\":\"8\",\"cliente\":\"javi\",\"empresa\":\"Thomann-Madrid\",\"transportista\":\"7775GMN\",\"res_envio\":0,\"res_esc\":\"\",\"res_prod\":0}]');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Todos los productos tienen el cliente 'javi'\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    for (var i = 0; i < jsonData.lenght; i++) {\r",
+							"        pm.expect(jsonData[i].cliente).to.eql(\"javi\");\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/cliente/javi",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cliente",
+						"javi"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testGetProductosTransportista",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Código de estado es 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Cuerpo del JSON es correcto\", function () {\r",
+							"    pm.response.to.have.body('[{\"id\":\"1\",\"nombre\":\"Silla\",\"descripcion\":\"Silla de madera: Gröningen\",\"estado\":\"INICIADO\",\"pedido\":\"1\",\"cliente\":\"javi\",\"empresa\":\"Ikea\",\"transportista\":\"8976GVL\",\"res_envio\":0,\"res_esc\":\"\",\"res_prod\":0},{\"id\":\"2\",\"nombre\":\"Maceta\",\"descripcion\":\"Maceta Ostergaard\",\"estado\":\"INICIADO\",\"pedido\":\"1\",\"cliente\":\"javi\",\"empresa\":\"Ikea\",\"transportista\":\"8976GVL\",\"res_envio\":0,\"res_esc\":\"\",\"res_prod\":0},{\"id\":\"3\",\"nombre\":\"Felpudo\",\"descripcion\":\"Felpudo Oaklast\",\"estado\":\"INICIADO\",\"pedido\":\"1\",\"cliente\":\"javi\",\"empresa\":\"Ikea\",\"transportista\":\"8976GVL\",\"res_envio\":0,\"res_esc\":\"\",\"res_prod\":0}]');\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Todos los productos tienen el transportista '8976GVL'\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    for (var i = 0; i < jsonData.lenght; i++) {\r",
+							"        pm.expect(jsonData[i].transportista).to.eql(\"8976GVL\");\r",
+							"    }\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/transportista/8976GVL",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transportista",
+						"8976GVL"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testGetProductosEmpresa",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Código de estado es 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Cuerpo del JSON es correcto\", function () {\r",
+							"    pm.response.to.have.body('[{\"id\":\"1\",\"nombre\":\"Silla\",\"descripcion\":\"Silla de madera: Gröningen\",\"estado\":\"INICIADO\",\"pedido\":\"1\",\"cliente\":\"javi\",\"empresa\":\"Ikea\",\"transportista\":\"8976GVL\",\"res_envio\":0,\"res_esc\":\"\",\"res_prod\":0},{\"id\":\"2\",\"nombre\":\"Maceta\",\"descripcion\":\"Maceta Ostergaard\",\"estado\":\"INICIADO\",\"pedido\":\"1\",\"cliente\":\"javi\",\"empresa\":\"Ikea\",\"transportista\":\"8976GVL\",\"res_envio\":0,\"res_esc\":\"\",\"res_prod\":0},{\"id\":\"3\",\"nombre\":\"Felpudo\",\"descripcion\":\"Felpudo Oaklast\",\"estado\":\"INICIADO\",\"pedido\":\"1\",\"cliente\":\"javi\",\"empresa\":\"Ikea\",\"transportista\":\"8976GVL\",\"res_envio\":0,\"res_esc\":\"\",\"res_prod\":0},{\"id\":\"18\",\"nombre\":\"Estantería\",\"descripcion\":\"Kukia Rack\",\"estado\":\"INICIADO\",\"pedido\":\"10\",\"cliente\":\"manuel\",\"empresa\":\"Ikea\",\"transportista\":\"1890ALB\",\"res_envio\":0,\"res_esc\":\"\",\"res_prod\":0}]');\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Todos los productos son de la empresa 'Ikea'\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    for (var i = 0; i < jsonData.lenght; i++) {\r",
+							"        pm.expect(jsonData[i].empresa).to.eql(\"Ikea\");\r",
+							"    }\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/empresa/Ikea",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"empresa",
+						"Ikea"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testGetCoordenadas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Código de estado es 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Cuerpo del JSON es correcto\", function () {\r",
+							"    pm.response.to.have.body('[{\"id\":\"1\",\"matricula\":\"8976GVL\",\"latitud\":40.3154,\"longitud\":-3.6851},{\"id\":\"2\",\"matricula\":\"8976GVL\",\"latitud\":40.367863,\"longitud\":-3.612764}]');\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Todas las posiciones son del vehículo '8976GVL'\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    for (var i = 0; i < jsonData.lenght; i++) {\r",
+							"        pm.expect(jsonData[i].matricula).to.eql(\"8976GVL\");\r",
+							"    }\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/cliente/javi/1/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cliente",
+						"javi",
+						"1",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testAddPedido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Codigo de estado es 201 Creado\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"La respuesta contiene un objeto Producto valido\", function () {\r",
+							"    const jsonResponse = pm.response.json();\r",
+							"    pm.expect(jsonResponse).to.have.property(\"id\");\r",
+							"    pm.expect(jsonResponse).to.have.property(\"estado\");\r",
+							"    pm.expect(jsonResponse).to.have.property(\"transportista\");\r",
+							"    pm.expect(jsonResponse).to.have.property(\"res_envio\");\r",
+							"    pm.expect(jsonResponse).to.have.property(\"res_esc\");\r",
+							"    pm.expect(jsonResponse).to.have.property(\"res_prod\");\r",
+							"    pm.expect(jsonResponse).to.have.property(\"empresa\");\r",
+							"    pm.expect(jsonResponse).to.have.property(\"pedido\");\r",
+							"    pm.expect(jsonResponse).to.have.property(\"nombre\");\r",
+							"    pm.expect(jsonResponse).to.have.property(\"descripcion\");\r",
+							"    pm.expect(jsonResponse).to.have.property(\"cliente\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"La respuesta tiene los valores indicados\", function () {\r",
+							"    const jsonResponse = pm.response.json();\r",
+							"    pm.expect(jsonResponse.nombre).to.equal(\"producto1\");\r",
+							"    pm.expect(jsonResponse.descripcion).to.equal(\"descripcion1\");\r",
+							"    pm.expect(jsonResponse.estado).to.equal(\"INICIADO\");\r",
+							"    pm.expect(jsonResponse.pedido).to.equal(\"pedido1\");\r",
+							"    pm.expect(jsonResponse.cliente).to.equal(\"cliente1\");\r",
+							"    pm.expect(jsonResponse.empresa).to.equal(\"empresa1\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"producto1\",\r\n    \"descripcion\": \"descripcion1\",\r\n    \"pedido\": \"pedido1\",\r\n    \"cliente\": \"cliente1\",\r\n    \"transportista\": \"transportista1\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/empresa/empresa1/actualizar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"empresa",
+						"empresa1",
+						"actualizar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testAddPosición",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Codigo de estado es 201 Creado\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"La respuesta contiene un objeto Posicion valido\", function () {\r",
+							"    const jsonResponse = pm.response.json();\r",
+							"    pm.expect(jsonResponse).to.have.property(\"id\");\r",
+							"    pm.expect(jsonResponse).to.have.property(\"matricula\");\r",
+							"    pm.expect(jsonResponse).to.have.property(\"latitud\");\r",
+							"    pm.expect(jsonResponse).to.have.property(\"longitud\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"La respuesta tiene los valores indicados\", function () {\r",
+							"    const jsonResponse = pm.response.json();\r",
+							"    pm.expect(jsonResponse.id).to.equal(\"15\");\r",
+							"    pm.expect(jsonResponse.matricula).to.equal(\"8976GVL\");\r",
+							"    pm.expect(jsonResponse.latitud).to.equal(40.3154);\r",
+							"    pm.expect(jsonResponse.longitud).to.equal(-3.6851);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": \"15\",\r\n        \"matricula\": \"8976GVL\",\r\n        \"latitud\": \"40.3154\",\r\n        \"longitud\": \"-3.6851\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/posicion/8976GVL/new",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"posicion",
+						"8976GVL",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testUpdateRes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"El codigo de estado es 200 OK\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response contains an updated Producto object\", function () {\r",
+							"    const jsonResponse = pm.response.json();\r",
+							"    pm.expect(jsonResponse).to.have.property(\"id\");\r",
+							"    pm.expect(jsonResponse).to.have.property(\"estado\");\r",
+							"    pm.expect(jsonResponse).to.have.property(\"transportista\");\r",
+							"    pm.expect(jsonResponse).to.have.property(\"res_envio\");\r",
+							"    pm.expect(jsonResponse).to.have.property(\"res_esc\");\r",
+							"    pm.expect(jsonResponse).to.have.property(\"res_prod\");\r",
+							"    pm.expect(jsonResponse).to.have.property(\"empresa\");\r",
+							"    pm.expect(jsonResponse).to.have.property(\"pedido\");\r",
+							"    pm.expect(jsonResponse).to.have.property(\"nombre\");\r",
+							"    pm.expect(jsonResponse).to.have.property(\"descripcion\");\r",
+							"    pm.expect(jsonResponse).to.have.property(\"cliente\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"La respuesta tiene los valores indicados\", function () {\r",
+							"    const jsonResponse = pm.response.json();\r",
+							"    pm.expect(jsonResponse.res_envio).to.equal(5);\r",
+							"    pm.expect(jsonResponse.res_esc).to.equal(\"Llegó a tiempo\");\r",
+							"    pm.expect(jsonResponse.res_prod).to.equal(4);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": \"1\",\r\n        \"nombre\": \"Silla\",\r\n        \"descripcion\": \"Silla de madera: Gröningen\",\r\n        \"estado\": \"INICIADO\",\r\n        \"pedido\": \"1\",\r\n        \"cliente\": \"javi\",\r\n        \"empresa\": \"Ikea\",\r\n        \"transportista\": \"8976GVL\",\r\n        \"res_envio\": 5,\r\n        \"res_esc\": \"Llegó a tiempo\",\r\n        \"res_prod\": 4\r\n    }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/cliente/javi/historial/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cliente",
+						"javi",
+						"historial",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testUpdateEstado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"El codigo de estado es 200 OK\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response contains an updated Producto object\", function () {\r",
+							"    const jsonResponse = pm.response.json();\r",
+							"    pm.expect(jsonResponse).to.have.property(\"id\");\r",
+							"    pm.expect(jsonResponse).to.have.property(\"estado\");\r",
+							"    pm.expect(jsonResponse).to.have.property(\"transportista\");\r",
+							"    pm.expect(jsonResponse).to.have.property(\"res_envio\");\r",
+							"    pm.expect(jsonResponse).to.have.property(\"res_esc\");\r",
+							"    pm.expect(jsonResponse).to.have.property(\"res_prod\");\r",
+							"    pm.expect(jsonResponse).to.have.property(\"empresa\");\r",
+							"    pm.expect(jsonResponse).to.have.property(\"pedido\");\r",
+							"    pm.expect(jsonResponse).to.have.property(\"nombre\");\r",
+							"    pm.expect(jsonResponse).to.have.property(\"descripcion\");\r",
+							"    pm.expect(jsonResponse).to.have.property(\"cliente\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"La respuesta tiene los valores indicados\", function () {\r",
+							"    const jsonResponse = pm.response.json();\r",
+							"    pm.expect(jsonResponse.estado).to.equal(\"TRANSITO\");\r",
+							"    \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": \"1\",\r\n        \"nombre\": \"Silla\",\r\n        \"descripcion\": \"Silla de madera: Gröningen\",\r\n        \"estado\": \"TRANSITO\",\r\n        \"pedido\": \"1\",\r\n        \"cliente\": \"javi\",\r\n        \"empresa\": \"Ikea\",\r\n        \"transportista\": \"8976GVL\",\r\n        \"res_envio\": 5,\r\n        \"res_esc\": \"Llegó a tiempo\",\r\n        \"res_prod\": 4\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/transportista/8976GVL",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transportista",
+						"8976GVL"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

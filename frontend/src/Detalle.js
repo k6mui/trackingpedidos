@@ -38,7 +38,11 @@ export default function Detalle(props) {
     // Renderizado de la página.
     return <div id="detalle">
 
-        <button className='but_bi-caret-left' onClick={ () => navigate(`/cliente/${props.email}/${producto.pedido}`, {state: {pedido: producto.pedido, index: num_pedido}}) } >
+        <button className='but_bi-caret-left' onClick={() => {
+            props.setUbicaciones([]);
+            navigate(`/cliente/${props.email}/${producto.pedido}`, {state: {pedido: producto.pedido, index: num_pedido}});
+            return 0;
+          }}> 
             <i className="bi bi-caret-left"></i>
         </button>
 
@@ -68,11 +72,13 @@ export default function Detalle(props) {
                     <i className="bi bi-check-circle-fill"></i>
                 </div>
             </div>
+
+            <div className="container_map">
+                <button className="boton_mapa" onClick={() => props.download("ubicaciones")}>Cargar ubicaciones</button>
+                <Map ubicaciones={props.ubicaciones}/>
+            </div>
             
         </div>
-
-        <Map ubicaciones={props.ubicaciones}/>
-        <button className="mapa" onClick={() => props.download("ubicaciones")}>Cargar ubicaciones</button>
         
     </div>
 } 

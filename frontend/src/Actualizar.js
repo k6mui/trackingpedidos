@@ -70,14 +70,14 @@ export default function Actualizar(props) {
       <h1>Introduzca el pedido que desea añadir</h1>
         <form>
           <input type="text" placeholder="ID del pedido" value={props.datos.pedido} onChange={e => props.setDatos({ ...props.datos, pedido: e.target.value })} />
-          <input type="text" placeholder="Nombre del producto" value={props.datos.producto} onChange={e => props.setDatos({ ...props.datos, producto: e.target.value })} />
+          <input type="text" placeholder="Nombre del producto" value={props.datos.nombre} onChange={e => props.setDatos({ ...props.datos, nombre: e.target.value })} />
           <input type="text" placeholder="Descripcion del producto" value={props.datos.descripcion} onChange={e => props.setDatos({ ...props.datos, descripcion: e.target.value })} />
           <input type="text" placeholder="Cliente" value={props.datos.cliente} onChange={e => props.setDatos({ ...props.datos, cliente: e.target.value })} />
           <input type="text" placeholder="Matrícula del transporte" value={props.datos.transportista} onChange={e => props.setDatos({ ...props.datos, transportista: e.target.value })} />
 
           <button type="button" onClick={() => {
             props.enviarDatos(location.pathname, props.datos);
-            props.setDatos({ pedido: "", producto: "", descripcion: "", cliente:"", transportista:""});
+            props.setDatos({ pedido: "", nombre: "", descripcion: "", cliente:"", transportista:""});
             return 0;
           }}>Enviar</button>
 
