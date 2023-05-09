@@ -30,13 +30,6 @@ public class PosicionController {
     this.productRepository = p;
   }
 
-  // // Obtener coordenadas lat y long de todos los transportes (para ver la posicion de todos los transportes de una empresa)
-  // @GetMapping("/datos")
-  // List<Posicion> getAllCoordenadas() {
-  //   return (List<Posicion>) posicionRepository.findAll();
-  // }
-
-
   // Obtener Posicion de una vehiculo 
   @GetMapping("/cliente/{email}/{id_pedido}/{id_producto}")
   List<Posicion> getCoordenadasByMatricula(@PathVariable String id_pedido, @PathVariable String id_producto) {
@@ -59,25 +52,10 @@ public class PosicionController {
     return coordenadasByMatricula;
   }
 
-  // // Actualizar una traza de la tabla TrazaTransporte
-  // @PutMapping("/datos/{matricula}")
-  // ResponseEntity<Posicion> updatePosicion(@RequestBody Posicion newPosicion, @PathVariable String matricula) {
-  //   return posicionRepository.findById(newPosicion.getId()).map(posicion -> {
 
-  //     posicion.setMatricula(newPosicion.getMatricula());
-  //     posicion.setLatitud(newPosicion.getLatitud());
-  //     posicion.setLongitud(newPosicion.getLongitud());
-
-  //     posicionRepository.save(posicion);
-
-  //     return ResponseEntity.ok().body(posicion);
-
-  //   }).orElse(new ResponseEntity<Posicion>(HttpStatus.NOT_FOUND));
-
-  // }
 
   // Gestor de la empresa introduce una nueva traza/posición de un vehículo
-  @PostMapping("/posicion/{matricula}/new")
+  @PostMapping("/transportista/{matricula}")
   public ResponseEntity<Posicion> addPosicion(@RequestBody Posicion jsonRecibido, @PathVariable String matricula) {
 
     double longitud = jsonRecibido.getLongitud();
