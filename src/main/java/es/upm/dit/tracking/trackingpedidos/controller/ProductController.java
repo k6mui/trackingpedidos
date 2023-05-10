@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 public class ProductController {
   public ProductRepository productRepository;
-  private int contador = 19;
+  private int contador = 20;
   public static final Logger log = LoggerFactory.getLogger(ProductController.class);
   public ProductController(ProductRepository t) {
     this.productRepository = t;

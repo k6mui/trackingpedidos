@@ -6,7 +6,7 @@ import {
 
 export default function Map(props) {
     // Función que inicializa el mapa.
-    const { isLoaded, loadError} = useLoadScript({ googleMapsApiKey:"AIzaSyCHmpOZxtVieAFlMzFjSBcwzd-mpGvbdt8"});
+    const { isLoaded, loadError} = useLoadScript({ googleMapsApiKey:"AIzaSyCbFbUEppZs6I6Ycf0waNHMthvLPg7PcBw"});
     
     // Estado utilizado para renderizar las direcciones del mapa.
     const [directions, setDirections] = useState(null);

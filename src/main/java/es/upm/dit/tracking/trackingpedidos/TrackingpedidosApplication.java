@@ -274,9 +274,24 @@ public class TrackingpedidosApplication {
 			p17.setRes_prod(0);
 			productRepository.save(p17);
 
+			
 
 			Producto p18 = new Producto("18", "Estantería", "Kukia Rack", Estado.TRANSITO, "manuel", "Ikea", "10", "1890ALB", 0, "", 0);
 			productRepository.save(p18);
+
+			Producto p19 = new Producto();
+			p19.setId("19");
+			p19.setNombre("PRODUCTO1");
+			p19.setDescripcion("DESCRIPCION");
+			p19.setEstado(Estado.INICIADO);
+			p19.setPedido("12");
+			p19.setCliente("alex");
+			p19.setEmpresa("Ikea");
+			p19.setTransportista("8976GVL");
+			p19.setRes_envio(0);
+			p19.setRes_esc("");
+			p19.setRes_prod(0);
+			productRepository.save(p19);
 
 			// Volcado de datos tabla Transporte ------------------------------------------
 			Posicion t1 = new Posicion();
