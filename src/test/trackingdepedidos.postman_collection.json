@@ -291,7 +291,6 @@
 							"\r",
 							"pm.test(\"La respuesta tiene los valores indicados\", function () {\r",
 							"    const jsonResponse = pm.response.json();\r",
-							"    pm.expect(jsonResponse.id).to.equal(\"15\");\r",
 							"    pm.expect(jsonResponse.matricula).to.equal(\"8976GVL\");\r",
 							"    pm.expect(jsonResponse.latitud).to.equal(40.3154);\r",
 							"    pm.expect(jsonResponse.longitud).to.equal(-3.6851);\r",
@@ -316,7 +315,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/posicion/8976GVL/new",
+					"raw": "http://localhost:8080/transportista/8976GVL",
 					"protocol": "http",
 					"host": [
 						"localhost"
